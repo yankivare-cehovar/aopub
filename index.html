@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not ve Embed Sitesi</title>
+    <style>
+        body {
+            background-color: #1e293b;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 120px;
+            padding: 20px;
+        }
+        .box {
+            background-color: #334155;
+            border-radius: 10px;
+            box-shadow: 0 10px 150px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 400px; /* Boyutları büyüttüm */
+            height: auto; /* Yükseklik dinamik */
+            text-align: center;
+        }
+        .iframe-container {
+            margin-top: 15px;
+            background-color: #475569;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 200px; /* Varsayılan yükseklik */
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .not-box textarea {
+            width: 100%;
+            height: 70px; /* Daha geniş textarea */
+            background: #475569;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .not-box textarea:focus {
+            outline: none;
+        }
+        .kronometre {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .kronometre input {
+            width: 60px;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #000;
+        }
+        .kronometre button {
+            background-color: #10b981;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Playlistler</h1>
+    <div class="container">
+        <div class="box not-box">
+            <textarea id="not1" placeholder="Not yaz..."></textarea>
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe> <!-- Örnek link -->
+            </div>
+        </div>
+        <div class="box not-box">
+            <textarea id="not2" placeholder="Not yaz..."></textarea>
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+            </div>
+        </div>
+        <div class="box not-box">
+            <textarea id="not3" placeholder="Not yaz..."></textarea>
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+            </div>
+        </div>
+        <div class="box not-box">
+            <textarea id="not4" placeholder="Not yaz..."></textarea>
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+            </div>
+        </div>
+        <div class="box not-box">
+            <textarea id="not5" placeholder="Not yaz..."></textarea>
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+            </div>
+        </div>
+        <div class="box not-box">
+            <textarea id="not6" placeholder="Not yaz..."></textarea>
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+            </div>
+        </div>
+    </div>
+    <h1 style="text-align:center;">Main Text 2</h1>
+    <div class="container">
+        <div class="box iframe-box">Wheel Decide Embed Link 1</div>
+        <div class="box iframe-box">Wheel Decide Embed Link 2</div>
+        <div class="box iframe-box">Wheel Decide Embed Link 3</div>
+    </div>
+    <div class="kronometre">
+        <h2>Kronometre</h2>
+        <input type="number" id="saat" placeholder="Saat">
+        <input type="number" id="dakika" placeholder="Dakika">
+        <input type="number" id="saniye" placeholder="Saniye">
+        <br>
+        <button onclick="baslat()">Başlat</button>
+        <button onclick="sifirla()">Sıfırla</button>
+        <h3 id="zaman">00:00:00</h3>
+    </div>
+    <script>
+        // Notlar kaydedilsin
+        const notlar = ['not1', 'not2', 'not3', 'not4', 'not5', 'not6'];
+        notlar.forEach(id => {
+            const textarea = document.getElementById(id);
+            textarea.value = localStorage.getItem(id) || '';
+            textarea.addEventListener('input', () => {
+                localStorage.setItem(id, textarea.value);
+            });
+        });
+
+        // Kronometre
+        let interval;
+        function baslat() {
+            let saat = parseInt(document.getElementById("saat").value) || 0;
+            let dakika = parseInt(document.getElementById("dakika").value) || 0;
+            let saniye = parseInt(document.getElementById("saniye").value) || 0;
+
+            clearInterval(interval);
+            interval = setInterval(() => {
+                if (saniye === 0 && dakika === 0 && saat === 0) {
+                    clearInterval(interval);
+                    return;
+                }
+                if (saniye === 0) {
+                    saniye = 59;
+                    if (dakika === 0) {
+                        dakika = 59;
+                        saat--;
+                    } else {
+                        dakika--;
+                    }
+                } else {
+                    saniye--;
+                }
+                document.getElementById("zaman").innerText = `${saat.toString().padStart(2, '0')}:${dakika.toString().padStart(2, '0')}:${saniye.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function sifirla() {
+            clearInterval(interval);
+            document.getElementById("zaman").innerText = "00:00:00";
+        }
+    </script>
+</body>
+</html>
