@@ -1,141 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not ve Embed Sitesi</title>
-    <style>
-        body {
-            background-color: #1e293b;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 120px;
-            padding: 20px;
-        }
-        .box {
-            background-color: #334155;
-            border-radius: 10px;
-            box-shadow: 0 10px 150px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            width: 400px; /* Boyutları büyüttüm */
-            height: auto; /* Yükseklik dinamik */
-            text-align: center;
-        }
-        .iframe-container {
-            margin-top: 15px;
-            background-color: #475569;
-            border-radius: 5px;
-            overflow: hidden;
-            height: 200px; /* Varsayılan yükseklik */
-        }
-        .iframe-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .not-box textarea {
-            width: 100%;
-            height: 70px; /* Daha geniş textarea */
-            background: #475569;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px;
-        }
-        .not-box textarea:focus {
-            outline: none;
-        }
-        .kronometre {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .kronometre input {
-            width: 60px;
-            padding: 5px;
-            margin: 5px;
-            text-align: center;
-            border-radius: 5px;
-            border: 1px solid #000;
-        }
-        .kronometre button {
-            background-color: #10b981;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="utf-8">
+<title>AO Publishing - YDT'ye son noktayı koy!</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="http://webthemez.com" />
+<!-- css -->
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link href="css/jcarousel.css" rel="stylesheet" />
+<link href="css/flexslider.css" rel="stylesheet" />
+<link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" />
+ 
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
 </head>
 <body>
-    <h1 style="text-align:center;">Playlistler</h1>
-    <div class="container">
-        <div class="box not-box">
-            <textarea id="not1" placeholder="Not yaz..."></textarea>
-            <div class="iframe-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe> <!-- Örnek link -->
+<div id="wrapper">
+	<!-- start header -->
+	<header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="img/logoBf.png" alt="logo"/></a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Ana Sayfa</a></li> 
+						<li><a href="pricing.html">Yayınlarımız</a></li>
+						<li><a href="courses.html">Yazarlar</a></li>
+                        <li><a href="portfolio.html">Medya</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    <div class="kronometre">
-        <h2>Kronometre</h2>
-        <input type="number" id="saat" placeholder="Saat">
-        <input type="number" id="dakika" placeholder="Dakika">
-        <input type="number" id="saniye" placeholder="Saniye">
-        <br>
-        <button onclick="baslat()">Başlat</button>
-        <button onclick="sifirla()">Sıfırla</button>
-        <h3 id="zaman">00:00:00</h3>
+	</header>
+	<!-- end header -->
+	<section id="featured">
+	 
+	<!-- Slider -->
+        <div id="main-slider" class="flexslider">
+            <ul class="slides">
+              <li>
+                <img src="img/slides/1.jpg" alt="" />
+                <div class="flex-caption">
+                   <div class="item_introtext"> 
+					<strong>AO Publishing</strong>
+					<p>"YDT'ye son noktayı koy!</p> </div>
+                </div>
+              </li>
+              <li>
+                <img src="img/slides/2.jpg" alt="" />
+                <div class="flex-caption">
+                     <div class="item_introtext"> 
+					<strong>Yeni Kitaplar!</strong>
+					<p>Bir adım daha ileri gitmek için...</p> </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+	<!-- end slider -->
+ 
+	</section>
+	<section class="callaction">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="aligncenter"><h1 class="aligncenter">Ne için mi AO?</h1><span class="clear spacer_responsive_hide_mobile " style="height:13px;display:block;"></span>Hem kaliteyi hem de başarıyı ön planda tutuyoruz. YDT'ye giden yolda kimi için son, kimi için başlangıç noktasıyız!</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section id="content">
+	
+	
+	<div class="container">
+			<div class="row">
+		<div class="skill-home"> <div class="skill-home-solid clearfix"> 
+		<div class="col-md-3 text-center">
+		<span class="icons c1"><i class="fa fa-trophy"></i></span> <div class="box-area">
+		<h3>Öğrenme Garantisi</h3> <p>Her seviyeye uygun içerikler ve öğrenci odaklı yöntemlerle başarı garantisi sunuyoruz. Hedefinize ulaşana kadar yanınızdayız.</p></div>
+		</div>
+		<div class="col-md-3 text-center"> 
+		<span class="icons c2"><i class="fa fa-picture-o"></i></span> <div class="box-area">
+		<h3>Güncel İçerik</h3> <p>YDT müfredatına uygun, en güncel içeriklerle sınavda neyle karşılaşacağınızı tam olarak öğrenirsiniz</p></div>
+		</div>
+		<div class="col-md-3 text-center"> 
+		<span class="icons c3"><i class="fa fa-desktop"></i></span> <div class="box-area">
+		<h3>Video Çözüm</h3> <p>Zorlandığınız soruları adım adım çözerek, anlamadığınız hiçbir şey kalmaz. Video çözümlerle sınavı tam olarak anlamanızı sağlıyoruz</p></div>
+		</div>
+		<div class="col-md-3 text-center"> 
+		<span class="icons c4"><i class="fa fa-globe"></i></span> <div class="box-area">
+		<h3>Öğrenci Yorumları</h3> <p> :3 </p>
+		</div></div>
+		</div></div>
+		</div> 
+		 
+
+	</div>
+	</section>
+	<div class="testimonial-area">
+    <div class="testimonial-solid">
+        <div class="container">
+            <div class="testi-icon-area">
+                <div class="quote">
+                    <i class="fa fa-microphone"></i>
+                </div>
+            </div>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="">
+                        <a href="#"></a>
+                    </li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1" class="">
+                        <a href="#"></a>
+                    </li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2" class="active">
+                        <a href="#"></a>
+                    </li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3" class="">
+                        <a href="#"></a>
+                    </li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item">
+                        <p>Hiç kimse! Ama, hiç kimseler arasında çok önemli.</p>
+                        <p>
+                            <b>Hiç kimse</b>
+                        </p>
+                    </div>
+                    <div class="item">
+                        <p>“En büyük zafer, hiçbir zaman düşmemek değil; her düştüğünde yeniden kalkabilmektir.”</p>
+                        <p>
+                            <b>Konfüçyüs</b>
+                        </p>
+                    </div>
+                    <div class="item active">
+                        <p>"Büyük işler küçük bir başlangıçla başlar."</p>
+                        <p>
+                            <b>Lao Tzu</b>
+                        </p>
+                    </div>
+                    <div class="item">
+                        <p>"İlim, her insanın aradığı bir hazine gibidir, o hazineyi bulduğunda her şey daha anlamlı olur."</p>
+                        <p>
+                            <b>Hazreti Ali(?)</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
-        // Notlar kaydedilsin
-        const notlar = ['not1', 'not2', 'not3', 'not4', 'not5', 'not6'];
-        notlar.forEach(id => {
-            const textarea = document.getElementById(id);
-            textarea.value = localStorage.getItem(id) || '';
-            textarea.addEventListener('input', () => {
-                localStorage.setItem(id, textarea.value);
-            });
-        });
-
-        // Kronometre
-        let interval;
-        function baslat() {
-            let saat = parseInt(document.getElementById("saat").value) || 0;
-            let dakika = parseInt(document.getElementById("dakika").value) || 0;
-            let saniye = parseInt(document.getElementById("saniye").value) || 0;
-
-            clearInterval(interval);
-            interval = setInterval(() => {
-                if (saniye === 0 && dakika === 0 && saat === 0) {
-                    clearInterval(interval);
-                    return;
-                }
-                if (saniye === 0) {
-                    saniye = 59;
-                    if (dakika === 0) {
-                        dakika = 59;
-                        saat--;
-                    } else {
-                        dakika--;
-                    }
-                } else {
-                    saniye--;
-                }
-                document.getElementById("zaman").innerText = `${saat.toString().padStart(2, '0')}:${dakika.toString().padStart(2, '0')}:${saniye.toString().padStart(2, '0')}`;
-            }, 1000);
-        }
-
-        function sifirla() {
-            clearInterval(interval);
-            document.getElementById("zaman").innerText = "00:00:00";
-        }
-    </script>
+</div>
+<section class="courses">
+<div class="container">
+<!--- 
+		<div class="row"> 
+			<div class="col-lg-12">
+				<div class="aligncenter"><h2 class="aligncenter">Courses We Offer</h1><span class="clear spacer_responsive_hide_mobile " style="height:13px;display:block;"></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus nulla nemo ipsum odit corrupti consequuntur possimus, vero mollitia velit ad consectetur. Alias, laborum excepturi nihil autem nemo numquam, ipsa architecto non, magni consequuntur quam.</div>
+			</div>
+		</div>
+<div class="row">
+            <div class="col-md-4">
+			<div class="textbox">
+                <h3>Heading Course</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vest sit amet, consec ibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta.</p>
+            </div> </div>
+            <div class="col-md-4">
+			<div class="textbox">
+                  <h3>Heading Course</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vest sit amet, consec ibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta.</p>
+            </div> </div>
+			<div class="col-md-4">
+			<div class="textbox">
+                  <h3>Heading Course</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vest sit amet, consec ibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta.</p>
+            </div> </div>
+        </div>
+		<div class="row">
+            <div class="col-md-4">
+			<div class="textbox">
+                <h3>Heading Course</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vest sit amet, consec ibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta.</p>
+            </div> </div>
+            <div class="col-md-4">
+			<div class="textbox">
+                  <h3>Heading Course</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vest sit amet, consec ibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta.</p>
+            </div> </div>
+			<div class="col-md-4">
+			<div class="textbox">
+                  <h3>Heading Course</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vest sit amet, consec ibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta.</p>
+            </div> </div>-->
+        </div>
+</div>
+</section>
+	<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Our Contact</h5>
+					<address>
+					<strong>Abovecompany Inc</strong><br>
+					JC Main Road, Near Silnile tower<br>
+					 Pin-21542 NewYork US.</address>
+					<p>
+						<i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
+						<i class="icon-envelope-alt"></i> email@domainname.com
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Tez ulaşmak için</h5>
+					<ul class="link-list">
+						<li><a href="#">Yayınlarımız</a></li>
+						<li><a href="#">Yazarlar</a></li>
+						<li><a href="#">Medya</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Son Havadisler</h5>
+					<ul class="link-list">
+						<li><a href="#">Pek de bir şey olmuyorsa demek.</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Recent News</h5>
+					<ul class="link-list">
+						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="copyright">
+						<p>
+							<span>&copy; Above Site All right reserved. Template By </span><a href="http://webthemez.com" target="_blank">WebThemez</a>
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<ul class="social-network">
+						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script> 
+<script src="js/portfolio/jquery.quicksand.js"></script>
+<script src="js/portfolio/setting.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/owl-carousel/owl.carousel.js"></script>
 </body>
 </html>
