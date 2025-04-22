@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<head>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Optik Form</title>
+  <!-- Tom Select CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+
+<!-- Tom Select JS -->
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .question-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .question-number {
+      width: 35px;
+      height: 35px;
+      background-color: #a8d5ba;
+      color: #fff;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 35px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+/* Şıkların görünümü - eski halin modern hali */
+.options input[type="radio"] {
+  display: none;
+}
+
+.options label {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  line-height: 35px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: white;
+  color: black;
+}
+
+/* Normal seçildiğinde */
+.options input[type="radio"]:checked + label {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Kullanıcının doğru işaretlediği şık: yeşil */
+.options input[type="radio"]:checked.correct-user + label {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white;
+}
+
+/* Yanlış seçilen şık: kırmızı */
+.options.wrong input[type="radio"]:checked + label {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white;
+}
+
+/* Doğru şık ama kullanıcı işaretlememiş: sarı */
+.options .correct-answer {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  color: black;
+}
+
+
+    .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .result table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .result th, .result td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .question-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .options {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <a href="index.html">
+        <img src="img/logoBf.png" alt="Site Logo" style="max-width: 150px; height: auto;">
+      </a>
+    </div>
+    <h2>Optik Form</h2>
+    <div style="background-color: #f8f9fa; color: #6c757d; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 14px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+      Bu form, sınav sonuçlarınızı kontrol etmek için kullanılmaktadır. Lütfen sınav türünü seçin ve ardından cevaplarınızı işaretleyin. Cevapları ezberleyip denemeyi çözmek bir şey anlamanıza katkıda bulunmayacaktır. Sadece kendinizi kandırmış olursunuz.
+    </div>
+
+    <div style="background-color: #f8f9fa; color: #6c757d; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 14px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <em>"Anlamak istemeyene hiçbir şey öğretemem ben."</em> <br> <strong><em>Konfüçyüs</em></strong>
+    </div>
+    <select id="examType" onchange="generateForm()">
+        <option value="">*Sınav Türünü Seç</option>
+        <option value="hissetmek1">YDT'yi Hissetmek 1 (bitmedi)</option>
+        <option value="anlamak1">YDT'yi Anlamak (bitmedi)</option>
+        <option value="anlamamak1">YDT'yi Anlamamak (bitmedi)</option>
+        <option value="usenmek1">YDT'ye Üşenmek 1. Test</option>
+
+
+
+        
+        <!-- daha fazlası eklenebilir -->
+      </select>
+      
+
+    <div id="optikForm"></div>
+
+    <button class="submit-btn" onclick="confirmCheck()">Cevapları Kontrol Et</button>
+
+    <div class="result" id="resultBox" style="display: none;"></div>
+  </div>
+
+  <script>
+    const answerKeys = {
+      hissetmek1: ['A', 'C', 'B', 'D', 'E', 'A', 'B', 'C', 'D', 'E'],
+      anlamak1: ['B', 'A', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E'],
+      anlamamak1: ['A', 'C', 'B', 'D', 'E'],
+      usenmek1: ['C', 'C', 'E', 'B', 'D', 'D', 'B', 'A', 'A', 'E', 'C', 'C', 'D', 'B', 'B', 'E', 'A', 'A', 'B', 'E', 'D', 'C', 'E', 'C']
+    // Diğer sınav türleri için cevap anahtarları eklenebilir
+    };
+
+    function generateForm() {
+      const examType = document.getElementById("examType").value;
+      const formContainer = document.getElementById("optikForm");
+      formContainer.innerHTML = "";
+      if (!examType) return;
+
+      const correctAnswers = answerKeys[examType];
+      const total = correctAnswers.length;
+
+      for (let i = 1; i <= total; i++) {
+        const row = document.createElement("div");
+        row.className = "question-row";
+
+        const number = document.createElement("div");
+        number.className = "question-number";
+        number.textContent = i;
+
+        const options = document.createElement("div");
+        options.className = "options";
+        options.setAttribute("data-question", i);
+
+        ['A', 'B', 'C', 'D', 'E', 'BOŞ'].forEach(option => {
+          const id = `q${i}_${option}`;
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.id = id;
+          input.name = `q${i}`;
+          input.value = option;
+
+          const label = document.createElement("label");
+          label.htmlFor = id;
+          label.textContent = option;
+
+          options.appendChild(input);
+          options.appendChild(label);
+        });
+
+        row.appendChild(number);
+        row.appendChild(options);
+        formContainer.appendChild(row);
+      }
+
+      document.getElementById("resultBox").style.display = "none";
+    }
+
+    function confirmCheck() {
+      if (confirm("Cevapları kontrol etmek istediğinize emin misiniz?")) {
+        checkAnswers();
+      }
+    }
+
+    function checkAnswers() {
+      const examType = document.getElementById("examType").value;
+      const correctAnswers = answerKeys[examType];
+      if (!correctAnswers) return alert("Lütfen sınav türünü seçin!");
+
+      let correct = 0, wrong = 0, empty = 0;
+
+      document.querySelectorAll(".options").forEach(optionGroup => {
+        const qNumber = parseInt(optionGroup.getAttribute("data-question"));
+        const selected = optionGroup.querySelector("input:checked");
+        const correctAnswer = correctAnswers[qNumber - 1];
+        optionGroup.classList.remove("wrong");
+
+        const labels = optionGroup.querySelectorAll("label");
+        labels.forEach(label => {
+          label.classList.remove("correct-answer");
+        });
+
+            if (!selected || selected.value === "BOŞ") {
+            empty++;
+            } else if (selected.value === correctAnswer) {
+            correct++;
+            selected.classList.add("correct-user");
+            } else {
+            wrong++;
+            optionGroup.classList.add("wrong");
+            labels.forEach(label => {
+                if (label.textContent === correctAnswer) {
+                label.classList.add("correct-answer");
+                }
+            });
+            }
+
+      });
+
+      const net = correct - (wrong / 4);
+      const resultBox = document.getElementById("resultBox");
+      resultBox.innerHTML = `
+        <table>
+          <tr>
+            <th>Doğru</th>
+            <th>Yanlış</th>
+            <th>Boş</th>
+            <th>Net</th>
+          </tr>
+          <tr>
+            <td>${correct}</td>
+            <td>${wrong}</td>
+            <td>${empty}</td>
+            <td>${net.toFixed(2)}</td>
+          </tr>
+        </table>
+      `;
+      resultBox.style.display = "block";
+    }
+
+    // Tom Select initialization for exam type selection
+  new TomSelect('#examType', {
+    create: false,
+    sortField: {
+      field: "text",
+      direction: "asc"
+    },
+    placeholder: "Sınav Türünü Seçin...",
+    allowEmptyOption: true
+  });
+
+
+  </script>
+</body>
+</html>
+<!-- End of optik.html -->
