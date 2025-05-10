@@ -157,6 +157,39 @@
       padding: 10px;
       text-align: center;
     }
+    
+    .feedback-text {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+      font-style: italic;
+    }
+    
+    .feedback-poor {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .feedback-fair {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+    }
+    
+    .feedback-good {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .feedback-excellent {
+      background-color: #cce5ff;
+      color: #004085;
+      border: 1px solid #b8daff;
+    }
 
     @media (max-width: 600px) {
       .select-group {
@@ -232,6 +265,32 @@
         test1: ['C', 'C', 'E', 'B', 'D', 'D', 'B', 'A', 'A', 'E', 'C', 'C', 'D', 'B', 'B', 'E', 'A', 'A', 'B', 'E', 'D', 'C', 'E', 'C'],
         test2: ['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E']
       }
+    };
+    
+    // Feedback texts based on percentage ranges with multiple options
+    const feedbackTexts = {
+      poor: [
+        "God does not burden a soul beyond that it can bear. Surah Al-Baqarah 2:286",
+        "Indeed, Allah is with those who are patient. Surah Al-Anfal 8:46",
+        "He gives strength to the weary and increases the power of the weak. Isaiah 40:29", 
+        "A journey of a thousand miles begins with a single step. Lao Tzu",
+        "Real knowledge is to know the extent of one's ignorance. Confucius"
+          ],
+      fair: [
+        "Indeed, with hardship [will be] ease. Surah Al-Inshirah 94:6",
+        "Do not be deceived: God cannot be mocked. A man reaps what he sows. Galatians 6:7",
+        "To make a mistake and not correct it is another mistake. Confucius",
+        "The man who moves a mountain begins by carrying away small stones. Confucius"
+      ],
+      good: [
+        "It does not matter how slowly you go as long as you do not stop. Confucius",
+        "Our greatest glory is not in never falling, but in rising every time we fall. Confucius",
+        "No matter how far you walk, you are as strong as the path you've left behind, and as weak as the road you have yet to walk. Boris Vian"
+      ],
+      excellent: [
+        "If you are thankful, I will give you more. Surah Ibrahim 14:7",
+        "helal len"
+      ]
     };
 
     // Tom Select initialization
@@ -359,24 +418,47 @@
           label.classList.remove("correct-answer");
         });
 
-            if (!selected || selected.value === "BOŞ") {
-            empty++;
-            } else if (selected.value === correctAnswer) {
-            correct++;
-            selected.classList.add("correct-user");
-            } else {
-            wrong++;
-            optionGroup.classList.add("wrong");
-            labels.forEach(label => {
-                if (label.textContent === correctAnswer) {
-                label.classList.add("correct-answer");
-                }
-            });
+        if (!selected || selected.value === "BOŞ") {
+          empty++;
+        } else if (selected.value === correctAnswer) {
+          correct++;
+          selected.classList.add("correct-user");
+        } else {
+          wrong++;
+          optionGroup.classList.add("wrong");
+          labels.forEach(label => {
+            if (label.textContent === correctAnswer) {
+              label.classList.add("correct-answer");
             }
-
+          });
+        }
       });
 
       const net = correct - (wrong / 4);
+      const totalQuestions = correctAnswers.length;
+      const percentage = (net / totalQuestions) * 100;
+      
+      // Determine feedback type based on percentage
+      let feedbackType, feedbackClass;
+      if (percentage >= 0 && percentage < 30) {
+        feedbackType = 'poor';
+        feedbackClass = 'feedback-poor';
+      } else if (percentage >= 30 && percentage < 50) {
+        feedbackType = 'fair';
+        feedbackClass = 'feedback-fair';
+      } else if (percentage >= 50 && percentage < 75) {
+        feedbackType = 'good';
+        feedbackClass = 'feedback-good';
+      } else {
+        feedbackType = 'excellent';
+        feedbackClass = 'feedback-excellent';
+      }
+      
+      // Select a random feedback message from the appropriate category
+      const feedbackMessages = feedbackTexts[feedbackType];
+      const randomIndex = Math.floor(Math.random() * feedbackMessages.length);
+      const selectedFeedback = feedbackMessages[randomIndex];
+      
       const resultBox = document.getElementById("resultBox");
       resultBox.innerHTML = `
         <table>
@@ -385,14 +467,19 @@
             <th>Yanlış</th>
             <th>Boş</th>
             <th>Net</th>
+            <th>Yüzde</th>
           </tr>
           <tr>
             <td>${correct}</td>
             <td>${wrong}</td>
             <td>${empty}</td>
             <td>${net.toFixed(2)}</td>
+            <td>${percentage.toFixed(2)}%</td>
           </tr>
         </table>
+        <div class="feedback-text ${feedbackClass}">
+          ${selectedFeedback}
+        </div>
       `;
       resultBox.style.display = "block";
     }
