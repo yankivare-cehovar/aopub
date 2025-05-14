@@ -12,6 +12,9 @@
 <!-- Tom Select JS -->
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -191,6 +194,32 @@
       border: 1px solid #b8daff;
     }
 
+    /* Whatsapp share button styles */
+    .whatsapp-share-btn {
+      background-color: #25D366;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 15px auto;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-share-btn:hover {
+      background-color: #128C7E;
+    }
+
+    .whatsapp-share-container {
+      text-align: center;
+      margin-top: 15px;
+    }
+
     @media (max-width: 600px) {
       .select-group {
         flex-direction: column;
@@ -254,7 +283,7 @@
         test2: ['B', 'A', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E']
       },
       anlamak: {
-        test1: ['B', 'A', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E'],
+        test1: ['A', 'D', 'D', 'A', 'C', 'D', 'D', 'A', 'E', 'D', 'E', 'E', 'D', 'C', 'E', 'A', 'D', 'C', 'B', 'D', 'C', 'B', 'C', 'A', 'C', 'E', 'D', 'C', 'E', 'B', 'D', 'A', 'B', 'B', 'E', 'E', 'D', 'C', 'A', 'A', 'D', 'E', 'B', 'A', 'B', 'E', 'A', 'C', 'A', 'A', 'B', 'D', 'C', 'E', 'A', 'E', 'D', 'D', 'E', 'D'],
         test2: ['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E']
       },
       anlamamak: {
@@ -265,6 +294,14 @@
         test1: ['C', 'C', 'E', 'B', 'D', 'D', 'B', 'A', 'A', 'E', 'C', 'C', 'D', 'B', 'B', 'E', 'A', 'A', 'B', 'E', 'D', 'C', 'E', 'C'],
         test2: ['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E']
       }
+    };
+    
+    // Book type display names
+    const bookDisplayNames = {
+      hissetmek: "YDT'yi Hissetmek",
+      anlamak: "YDT'yi Anlamak",
+      anlamamak: "YDT'yi Anlamamak",
+      usenmek: "YDT'ye Üşenmek"
     };
     
     // Feedback texts based on percentage ranges with multiple options
@@ -292,6 +329,15 @@
         "helal len"
       ]
     };
+
+    // Variables to store current results
+    let currentCorrect = 0;
+    let currentWrong = 0;
+    let currentEmpty = 0;
+    let currentNet = 0;
+    let currentPercentage = 0;
+    let currentBookType = '';
+    let currentTestType = '';
 
     // Tom Select initialization
     const bookSelect = new TomSelect('#bookType', {
@@ -438,6 +484,15 @@
       const totalQuestions = correctAnswers.length;
       const percentage = (net / totalQuestions) * 100;
       
+      // Save current results for sharing
+      currentCorrect = correct;
+      currentWrong = wrong;
+      currentEmpty = empty;
+      currentNet = net;
+      currentPercentage = percentage;
+      currentBookType = bookType;
+      currentTestType = testType;
+      
       // Determine feedback type based on percentage
       let feedbackType, feedbackClass;
       if (percentage >= 0 && percentage < 30) {
@@ -480,8 +535,36 @@
         <div class="feedback-text ${feedbackClass}">
           ${selectedFeedback}
         </div>
+        <div class="whatsapp-share-container">
+          <button class="whatsapp-share-btn" onclick="shareResultsOnWhatsApp()">
+            <i class="fab fa-whatsapp"></i> WhatsApp'ta Paylaş
+          </button>
+        </div>
       `;
       resultBox.style.display = "block";
+    }
+
+    function shareResultsOnWhatsApp() {
+      // Get the book display name
+      const bookDisplayName = bookDisplayNames[currentBookType];
+      const testNumber = currentTestType.replace('test', '');
+      
+      // Create share text
+      const shareText = `${bookDisplayName} - Test ${testNumber} Sonucum:
+✅ Doğru: ${currentCorrect}
+❌ Yanlış: ${currentWrong}
+➖ Boş: ${currentEmpty}
+📊 Net: ${currentNet.toFixed(2)}
+📈 Yüzde: ${currentPercentage.toFixed(2)}%`;
+      
+      // Encode the text for URL
+      const encodedText = encodeURIComponent(shareText);
+      
+      // Create WhatsApp share URL
+      const whatsappURL = `https://api.whatsapp.com/send?text=${encodedText}`;
+      
+      // Open WhatsApp share in a new window
+      window.open(whatsappURL, '_blank');
     }
 
   </script>
