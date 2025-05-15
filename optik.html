@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="light">
   
 <head>
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -16,33 +16,71 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    :root {
+      --bg-color: #f4f4f4;
+      --container-bg: #fff;
+      --text-color: #333;
+      --border-color: #ccc;
+      --primary-color: #007bff;
+      --secondary-bg: #f8f9fa;
+      --secondary-text: #6c757d;
+      --question-bg: #a8d5ba;
+      --header-underline: #ddd;
+      --shadow-color: rgba(0,0,0,0.1);
+      --ts-background: #fff;
+      --ts-text: #333;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #222;
+      --container-bg: #333;
+      --text-color: #eee;
+      --border-color: #555;
+      --primary-color: #0d6efd;
+      --secondary-bg: #444;
+      --secondary-text: #bbb;
+      --question-bg: #4a7a5e;
+      --header-underline: #555;
+      --shadow-color: rgba(0,0,0,0.25);
+      --ts-background: #444;
+      --ts-text: #eee;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
+      background: var(--bg-color);
       padding: 20px;
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     .container {
       max-width: 700px;
       margin: auto;
-      background: #fff;
+      background: var(--container-bg);
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px var(--shadow-color);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
     h2 {
       text-align: center;
       margin-bottom: 20px;
+      color: var(--text-color);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--header-underline);
     }
 
     select {
       padding: 10px;
       font-size: 16px;
       border-radius: 8px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border-color);
       width: 100%;
       margin-bottom: 20px;
+      background-color: var(--container-bg);
+      color: var(--text-color);
     }
 
     .select-group {
@@ -64,7 +102,7 @@
     .question-number {
       width: 35px;
       height: 35px;
-      background-color: #a8d5ba;
+      background-color: var(--question-bg);
       color: #fff;
       border-radius: 5px;
       text-align: center;
@@ -79,53 +117,52 @@
       flex-wrap: wrap;
     }
 
-/* Şıkların görünümü - eski halin modern hali */
-.options input[type="radio"] {
-  display: none;
-}
+    /* Şıkların görünümü - eski halin modern hali */
+    .options input[type="radio"] {
+      display: none;
+    }
 
-.options label {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  line-height: 35px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background-color: white;
-  color: black;
-}
+    .options label {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      border: 2px solid var(--border-color);
+      border-radius: 50%;
+      line-height: 35px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: var(--container-bg);
+      color: var(--text-color);
+    }
 
-/* Normal seçildiğinde */
-.options input[type="radio"]:checked + label {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
-}
+    /* Normal seçildiğinde */
+    .options input[type="radio"]:checked + label {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
 
-/* Kullanıcının doğru işaretlediği şık: yeşil */
-.options input[type="radio"]:checked.correct-user + label {
-  background-color: #28a745 !important;
-  border-color: #28a745 !important;
-  color: white;
-}
+    /* Kullanıcının doğru işaretlediği şık: yeşil */
+    .options input[type="radio"]:checked.correct-user + label {
+      background-color: #28a745 !important;
+      border-color: #28a745 !important;
+      color: white;
+    }
 
-/* Yanlış seçilen şık: kırmızı */
-.options.wrong input[type="radio"]:checked + label {
-  background-color: #dc3545 !important;
-  border-color: #dc3545 !important;
-  color: white;
-}
+    /* Yanlış seçilen şık: kırmızı */
+    .options.wrong input[type="radio"]:checked + label {
+      background-color: #dc3545 !important;
+      border-color: #dc3545 !important;
+      color: white;
+    }
 
-/* Doğru şık ama kullanıcı işaretlememiş: sarı */
-.options .correct-answer {
-  background-color: #ffc107 !important;
-  border-color: #ffc107 !important;
-  color: black;
-}
-
+    /* Doğru şık ama kullanıcı işaretlememiş: sarı */
+    .options .correct-answer {
+      background-color: #ffc107 !important;
+      border-color: #ffc107 !important;
+      color: black;
+    }
 
     .submit-btn {
       background-color: #4CAF50;
@@ -156,7 +193,7 @@
     }
 
     .result th, .result td {
-      border: 1px solid #ccc;
+      border: 1px solid var(--border-color);
       padding: 10px;
       text-align: center;
     }
@@ -220,6 +257,89 @@
       margin-top: 15px;
     }
 
+    .dark-mode-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-color);
+      background: none;
+      border: none;
+      transition: transform 0.3s ease;
+      z-index: 10;
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Tom Select dark mode */
+    .dark-mode .ts-control {
+      background-color: var(--ts-background);
+      color: var(--ts-text);
+      border-color: var(--border-color);
+    }
+
+    .dark-mode .ts-dropdown {
+      background-color: var(--ts-background);
+      color: var(--ts-text);
+      border-color: var(--border-color);
+    }
+
+    .dark-mode .ts-dropdown .option {
+      color: var(--ts-text);
+    }
+
+    .dark-mode .ts-dropdown .active {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    /* Difficulty Rating Bar */
+    .difficulty-container {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: var(--secondary-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px var(--shadow-color);
+    }
+
+    .difficulty-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .difficulty-rating {
+      height: 10px;
+      background: linear-gradient(to right, #28a745, #ffc107, #dc3545);
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .difficulty-marker {
+      width: 4px;
+      height: 14px;
+      background-color: #000;
+      position: absolute;
+      top: -2px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    }
+
+    .difficulty-steps {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5px;
+      margin-top: 5px;
+      font-size: 12px;
+      color: var(--secondary-text);
+    }
+
     @media (max-width: 600px) {
       .select-group {
         flex-direction: column;
@@ -233,10 +353,19 @@
       .options {
         margin-top: 5px;
       }
+
+      .dark-mode-toggle {
+        top: 10px;
+        right: 10px;
+      }
     }
   </style>
 </head>
 <body>
+  <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </button>
+
   <div class="container">
     <div style="text-align: center; margin-bottom: 20px;">
       <a href="index.html">
@@ -244,11 +373,11 @@
       </a>
     </div>
     <h2>Optik Form</h2>
-    <div style="background-color: #f8f9fa; color: #6c757d; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 14px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <div style="background-color: var(--secondary-bg); color: var(--secondary-text); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 14px; box-shadow: 0 2px 5px var(--shadow-color);">
       Bu form, sınav sonuçlarınızı kontrol etmek için kullanılmaktadır. Lütfen sınav türünü seçin ve ardından cevaplarınızı işaretleyin. Cevapları ezberleyip denemeyi çözmek bir şey anlamanıza katkıda bulunmayacaktır. Sadece kendinizi kandırmış olursunuz.
     </div>
 
-    <div style="background-color: #f8f9fa; color: #6c757d; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 14px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <div style="background-color: var(--secondary-bg); color: var(--secondary-text); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 14px; box-shadow: 0 2px 5px var(--shadow-color);">
     <em>"Anlamak istemeyene hiçbir şey öğretemem ben."</em> <br> <strong><em>Konfüçyüs</em></strong>
     </div>
     
@@ -266,6 +395,22 @@
         <select id="testType" disabled>
           <option value="">*Test Seçin</option>
         </select>
+      </div>
+    </div>
+
+    <!-- Difficulty Rating Bar -->
+    <div id="difficultyContainer" class="difficulty-container" style="display: none;">
+      <div class="difficulty-label">
+        <span>Zorluk Seviyesi</span>
+        <span id="difficultyText">Orta</span>
+      </div>
+      <div class="difficulty-rating">
+        <div id="difficultyMarker" class="difficulty-marker"></div>
+      </div>
+      <div class="difficulty-steps">
+        <span>Kolay</span>
+        <span>Orta</span>
+        <span>Zor</span>
       </div>
     </div>
 
@@ -304,6 +449,38 @@
       usenmek: "YDT'ye Üşenmek"
     };
     
+    // Difficulty ratings for each test (0-8 scale, 0=easiest, 8=hardest)
+    const difficultyRatings = {
+      hissetmek: {
+        test1: 2, // Intermediate
+        test2: 4  // Intermediate
+      },
+      anlamak: {
+        test1: 6, // Advanced
+        test2: 6  // Intermediate-Advanced
+      },
+      anlamamak: {
+        test1: 7, // Beginner-Intermediate
+        test2: 8  // Beginner
+      },
+      usenmek: {
+        test1: 2, // Advanced
+        test2: 3  // Very Advanced
+      }
+    };
+    
+    // Difficulty text based on the 0-8 scale
+    const difficultyTexts = [
+      "Çok Kolay",  // 0
+      "Kolay",      // 1
+      "Kolay-Orta", // 2
+      "Orta",       // 3
+      "Orta-Zor",   // 4
+      "Zor",        // 5
+      "Çok Zor",    // 6
+      "Yok Artık"   // 7
+    ];
+    
     // Feedback texts based on percentage ranges with multiple options
     const feedbackTexts = {
       poor: [
@@ -339,6 +516,55 @@
     let currentBookType = '';
     let currentTestType = '';
 
+    // Check for saved dark mode preference
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateDarkModeIcon(savedTheme);
+      document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+    }
+
+    // Toggle dark mode
+    function toggleDarkMode() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      updateDarkModeIcon(newTheme);
+      document.body.classList.toggle('dark-mode', newTheme === 'dark');
+    }
+
+    // Update the dark mode toggle icon
+    function updateDarkModeIcon(theme) {
+      const icon = document.querySelector('#darkModeToggle i');
+      if (theme === 'dark') {
+        icon.className = 'fas fa-sun';
+      } else {
+        icon.className = 'fas fa-moon';
+      }
+    }
+
+    // Update difficulty bar
+    function updateDifficultyBar(bookType, testType) {
+      const difficultyContainer = document.getElementById('difficultyContainer');
+      
+      if (!bookType || !testType || !difficultyRatings[bookType] || !difficultyRatings[bookType][testType]) {
+        difficultyContainer.style.display = 'none';
+        return;
+      }
+      
+      const difficultyValue = difficultyRatings[bookType][testType];
+      const difficultyText = difficultyTexts[difficultyValue];
+      const difficultyPercentage = (difficultyValue / 8) * 100;
+      
+      document.getElementById('difficultyText').textContent = difficultyText;
+      document.getElementById('difficultyMarker').style.left = `${difficultyPercentage}%`;
+      
+      difficultyContainer.style.display = 'block';
+    }
+
     // Tom Select initialization
     const bookSelect = new TomSelect('#bookType', {
       create: false,
@@ -350,6 +576,7 @@
       allowEmptyOption: true,
       onChange: function(value) {
         updateTests(value);
+        updateDifficultyBar(value, null);
       }
     });
 
@@ -359,6 +586,7 @@
       allowEmptyOption: true,
       onChange: function(value) {
         generateForm();
+        updateDifficultyBar(bookSelect.getValue(), value);
       }
     });
 
