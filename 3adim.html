@@ -1138,6 +1138,37 @@ feedbackArray = feedbackTexts.excellent;
       document.getElementById('resultBox').appendChild(feedbackDiv);
     }
 
+  function shareOnWhatsApp() {
+  const seriesType = document.getElementById('seriesType').value;
+  const examType = document.getElementById('examType').value;
+
+  // Get series display name
+  let seriesName = "";
+  if (seriesType === "ucadimbir") seriesName = "3 Adım, 1. Adım";
+  else if (seriesType === "ucadimiki") seriesName = "3 Adım, 2. Adım"; 
+  else if (seriesType === "ucadimuc") seriesName = "3 Adım, 3. Adım";
+
+  // Get exam number
+  const examNumber = examType.replace("deneme", "");
+
+  // Create share text with emojis
+  const shareText = `${seriesName} - Deneme ${examNumber} Sonucum:
+✅ Türkçe: ${currentResults.turkce.net.toFixed(2)} net
+⚡ Sosyal: ${currentResults.sosyal.net.toFixed(2)} net  
+🔢 Matematik: ${currentResults.matematik.net.toFixed(2)} net
+🧪 Fen: ${currentResults.fen.net.toFixed(2)} net
+📊 Toplam: ${currentResults.total.net.toFixed(2)} net
+📈 Yüzde: ${currentResults.total.percentage.toFixed(2)}%
+_aopublishing.com.tr_`;
+
+  // Encode text and create WhatsApp URL
+  const whatsappURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+
+  // Open WhatsApp share in new window
+  window.open(whatsappURL, '_blank');
+}
+
+
     // Initialize everything
     document.addEventListener('DOMContentLoaded', () => {
       initTheme();
