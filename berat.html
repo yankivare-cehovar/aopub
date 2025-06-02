@@ -1,136 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B. Esen</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>My Blog</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            transition: background-color 1s ease, color 1.2s ease;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
         }
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .dark-mode .bg-dark {
-            background-color: #1c1c1c !important;
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
         }
-        .dark-mode .bg-primary {
-            background-color: #333 !important;
+
+        .blog-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
         }
-        .dark-mode .card {
-            background-color: #1c1c1c;
-            color: #ffffff;
-            border-color: #333;
+
+        .blog-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
         }
-        .dark-mode .card-body {
-            background-color: #1c1c1c;
-            color: #ffffff;
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown-btn:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            z-index: 1000;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        .dropdown-item {
+            color: #333;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+            padding-left: 25px;
+            color: #667eea;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .post-display {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .post-display.active {
+            display: block;
+        }
+
+        .post-header {
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .post-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .post-date {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .post-type {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .post-content h1, .post-content h2, .post-content h3 {
+            color: #333;
+            margin: 25px 0 15px 0;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .theater-script {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .character {
+            font-weight: bold;
+            color: #667eea;
+            margin-top: 15px;
+        }
+
+        .stage-direction {
+            font-style: italic;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .file-preview {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .download-links {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .welcome-message {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .blog-title { font-size: 2.5rem; }
+            .nav-menu { gap: 15px; }
+            .dropdown-btn { padding: 12px 20px; font-size: 1rem; }
+            .post-display { padding: 25px; }
+            .post-title { font-size: 2rem; }
+            .dropdown-content { min-width: 200px; }
+        }
+
+        @media (max-width: 480px) {
+            .blog-title { font-size: 2rem; }
+            .nav-menu { flex-direction: column; align-items: center; }
+            .dropdown { width: 100%; }
+            .dropdown-btn { width: 100%; justify-content: center; }
+            .post-meta { flex-direction: column; align-items: flex-start; }
+            .download-links { flex-direction: column; }
         }
     </style>
 </head>
-<body class="dark-mode">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Yazar Sayfası - Berat Esen</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="index.html" class="btn btn-outline-light me-2">Siteye geri dön</a>
-                    </li>
-                    <li class="nav-item">
-                        <button id="toggleDarkMode" class="btn btn-outline-light">Karanlık Mod</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="blog-title">bulooo</h1>
+            <p class="blog-subtitle">ney</p>
+        </header>
 
-    <header class="bg-primary text-white text-center py-5">
-        <div class="container">
-            <h1>Merhaba</h1>
-            <p class="lead">Yaptığım bir kaç alelade şeyi saklamak için bir yer.</p>
-        </div>
-    </header>
-
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="text-center">Kimim ben</h2>
-            <p class="text-center">Varsayalım birisi, ne fark eder? Kime ne yararı var..?</p>
-        </div>
-    </section>
-
-    <section id="projects" class="py-5">
-        <div class="container">
-            <h2 class="text-center">Proje-ler</h2>
-            <div class="row">   
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Proje1</h5>
-                            <p class="card-text">proje1</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Proje2</h5>
-                            <p class="card-text">proje2.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Proje3</h5>
-                            <p class="card-text">proje3.</p>
-                        </div>
-                    </div>
+        <nav class="nav-menu">
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('programs')">
+                    💻 Programs <span>▼</span>
+                </button>
+                <div class="dropdown-content" id="programs">
+                    <a href="#" class="dropdown-item" onclick="showPost('calculator')">Simple Calculator</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('todolist')">Todo List App</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('fileorganizer')">File Organizer Script</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="blog" class="py-5">
-        <div class="container">
-            <h2 class="text-center">Yazıyorum.</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Yer tutucu 1</h5>
-                            <p class="card-text">Yer tutucu 1</p>
-                        </div>
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('websites')">
+                    🌐 Websites <span>▼</span>
+                </button>
+                <div class="dropdown-content" id="websites">
+                    <a href="#" class="dropdown-item" onclick="showPost('portfolio')">Personal Portfolio</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('restaurant')">Restaurant Website</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('blog')">Blog Template</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('theater')">
+                    🎭 Theater <span>▼</span>
+                </button>
+                <div class="dropdown-content" id="theater">
+                    <a href="#" class="dropdown-item" onclick="showPost('hamlet-scene')">Hamlet - Act 3 Scene 1</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('original-play')">My Original Play</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('monologue')">Personal Monologue</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('writings')">
+                    📝 Writings <span>▼</span>
+                </button>
+                <div class="dropdown-content" id="writings">
+                    <a href="#" class="dropdown-item" onclick="showPost('essay1')">My Thoughts on Technology</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('story1')">Short Story: The Journey</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('notes1')">Study Notes - History</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('files')">
+                    📁 Files <span>▼</span>
+                </button>
+                <div class="dropdown-content" id="files">
+                    <a href="#" class="dropdown-item" onclick="showPost('config1')">Server Configuration</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('data1')">Sample Data Set</a>
+                    <a href="#" class="dropdown-item" onclick="showPost('template1')">Email Template</a>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <!-- Welcome Message (Default) -->
+            <div class="welcome-message" id="welcome">
+                <h2 style="color: #667eea; margin-bottom: 20px;">düldül</h2>
+                <p style="font-size: 1.2rem; color: #666;">düldül fikretogulları<p>
+            </div>
+
+            <!-- EXAMPLE POSTS - You can copy these structures to add more -->
+            
+            <!-- Calculator Program -->
+            <div class="post-display" id="calculator">
+                <div class="post-header">
+                    <h1 class="post-title">Simple Calculator</h1>
+                    <div class="post-meta">
+                        <span class="post-date">December 15, 2024</span>
+                        <span class="post-type">JavaScript Program</span>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Yer tutucu 2</h5>
-                            <p class="card-text">Yer tutucu 2.</p>
-                        </div>
+                <div class="post-content">
+                    <p>A simple calculator built with HTML, CSS, and JavaScript. Features basic arithmetic operations and a clean interface.</p>
+                    
+                    <div class="code-block">
+function calculate(operation) {
+    const num1 = parseFloat(document.getElementById('num1').value);
+    const num2 = parseFloat(document.getElementById('num2').value);
+    let result;
+    
+    switch(operation) {
+        case '+': result = num1 + num2; break;
+        case '-': result = num1 - num2; break;
+        case '*': result = num1 * num2; break;
+        case '/': result = num1 / num2; break;
+        default: result = 'Invalid operation';
+    }
+    
+    document.getElementById('result').innerHTML = result;
+}
+                    </div>
+                    
+                    <div class="download-links">
+                        <a href="#" class="download-btn">📥 Download HTML</a>
+                        <a href="#" class="download-btn">🔗 Live Demo</a>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Calculator</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025. Tüm haklar saklıdır.</p>
-    </footer>
+            <!-- Theater Script -->
+            <div class="post-display" id="hamlet-scene">
+                <div class="post-header">
+                    <h1 class="post-title">Hamlet - Act 3 Scene 1</h1>
+                    <div class="post-meta">
+                        <span class="post-date">December 12, 2024</span>
+                        <span class="post-type">Theater Script</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>The famous "To be or not to be" soliloquy from Shakespeare's Hamlet. This is my interpretation and notes for a recent performance.</p>
+                    
+                    <div class="theater-script">
+<div class="stage-direction">[Enter HAMLET]</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<div class="character">HAMLET:</div>
+To be, or not to be, that is the question:
+Whether 'tis nobler in the mind to suffer
+The slings and arrows of outrageous fortune,
+Or to take arms against a sea of troubles
+And by opposing end them.
+
+<div class="stage-direction">[He paces, deep in thought]</div>
+
+To die—to sleep,
+No more; and by a sleep to say we end
+The heart-ache and the thousand natural shocks
+That flesh is heir to: 'tis a consummation
+Devoutly to be wish'd.
+                    </div>
+                    
+                    <p><strong>Performance Notes:</strong> Focus on the internal conflict. The pacing should be slow and contemplative. Emphasize the contrast between action and inaction.</p>
+                    
+                    <div class="download-links">
+                        <a href="#" class="download-btn">📥 Download Full Script</a>
+                        <a href="#" class="download-btn">🎬 Recording</a>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">Shakespeare</span>
+                        <span class="tag">Drama</span>
+                        <span class="tag">Monologue</span>
+                        <span class="tag">Classic</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Essay -->
+            <div class="post-display" id="essay1">
+                <div class="post-header">
+                    <h1 class="post-title">kutup</h1>
+                    <div class="post-meta">
+                        <span class="post-date">az once</span>
+                        <span class="post-type">test</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                  <p>ulusların kaderlerini tayin etme hakkı</p>
+                  <p>prova gibimsi bir şey? ters köşe</p>
+                  <p>ahmet kaya... ya da fikret abi</p>
+                  <p>John Soup 1</p>
+                  <p>ÇAY</p>
+                  <p>Moving House</p>
+                  <p>The Queue</p>
+                  <p>Waiting for Neizen</p>
+                  <p>So Long Neizen</p>
+                  <p>The Disappeared Sandwich</p>
+                  <p>bir türk bir rum bir ermeni</p>
+                  <p>new yorkta beş minare</p>
+                  <p>Seven Dwarves ate the Snow White</p>
+                </div>
+                    <div class="tags">
+                        <span class="tag">Society</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Example -->
+            <div class="post-display" id="config1">
+                <div class="post-header">
+                    <h1 class="post-title">Server Configuration File</h1>
+                    <div class="post-meta">
+                        <span class="post-date">December 8, 2024</span>
+                        <span class="post-type">Configuration File</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>This is my standard server configuration file for web applications. It includes security headers, caching rules, and optimization settings.</p>
+                    
+                    <div class="file-preview">
+# Server Configuration
+server {
+    listen 80;
+    server_name example.com;
+    
+    # Security headers
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    
+    # Gzip compression
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css application/json application/javascript;
+    
+    location / {
+        root /var/www/html;
+        index index.html index.htm;
+        try_files $uri $uri/ =404;
+    }
+    
+    # Cache static files
+    location ~* \.(css|js|png|jpg|jpeg|gif|ico)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+                    </div>
+                    
+                    <div class="download-links">
+                        <a href="#" class="download-btn">📥 Download Config</a>
+                        <a href="#" class="download-btn">📖 Setup Guide</a>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">Server</span>
+                        <span class="tag">Configuration</span>
+                        <span class="tag">Web</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 My Blog. A collection of my work and thoughts.</p>
+        </footer>
+    </div>
+
     <script>
-        const toggleDarkModeButton = document.getElementById('toggleDarkMode');
-        toggleDarkModeButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+        function toggleDropdown(id) {
+            // Close all dropdowns first
+            document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                if (dropdown.id !== id) {
+                    dropdown.classList.remove('show');
+                }
+            });
+            
+            // Toggle the clicked dropdown
+            document.getElementById(id).classList.toggle('show');
+        }
+
+        function showPost(postId) {
+            // Hide welcome message
+            document.getElementById('welcome').style.display = 'none';
+            
+            // Hide all posts
+            document.querySelectorAll('.post-display').forEach(post => {
+                post.classList.remove('active');
+            });
+            
+            // Show selected post
+            const selectedPost = document.getElementById(postId);
+            if (selectedPost) {
+                selectedPost.classList.add('active');
+            }
+            
+            // Close all dropdowns
+            document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Close dropdowns when clicking outside
+        window.addEventListener('click', function(e) {
+            if (!e.target.matches('.dropdown-btn') && !e.target.matches('.dropdown-btn span')) {
+                document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
         });
     </script>
 </body>
