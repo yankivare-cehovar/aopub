@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writiq - Educational Writing Platform</title>
+    <style>
+.mobile-nav a,.nav-links a{font-weight:500;color:#333}.logo,.nav-links a:hover{color:#1e3c72}.feature-card h3,.features h2,.nav-links a,body{color:#333}.cta-primary,.dashboard-card,.features,.header,.how-to-use,.mobile-nav{backdrop-filter:blur(10px)}.features h2,.footer,.hero,.mobile-nav li{text-align:center}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;background:linear-gradient(135deg,#1e3c72 0,#2a5298 100%);min-height:100vh}.container{max-width:1200px;margin:0 auto;padding:0 20px}.header{background:rgba(255,255,255,.95);border-bottom:1px solid rgba(255,255,255,.2);position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.1)}.nav,.nav-links a{position:relative}.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}.hero::before,.mobile-nav,.nav-links a::after{position:absolute;left:0}.nav-left{display:flex;align-items:center}.logo,.nav-right{align-items:center;display:flex}.nav-right{gap:1rem;margin-left:auto}.logo{gap:.5rem;font-size:2rem;font-weight:800;text-decoration:none}.cta-btn,.login-btn{font-weight:600;cursor:pointer;text-decoration:none;transition:.3s}.logo img{height:40px;width:auto}.logo-text{background:linear-gradient(135deg,#1e3c72,#2a5298);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.login-btn,.nav-links a::after{background:linear-gradient(135deg,#1e3c72,#2a5298)}.nav-links{display:flex;list-style:none;gap:2rem;align-items:center;margin-left:2rem}.nav-links a{text-decoration:none;transition:.3s}.nav-links a::after{content:'';width:0;height:2px;bottom:-5px;transition:width .3s}.nav-links a:hover::after{width:100%}.login-btn{color:#fff;padding:.75rem 1.5rem;border:none;border-radius:50px;display:inline-block;box-shadow:0 4px 15px rgba(30,60,114,.3);white-space:nowrap}.login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(30,60,114,.4)}.mobile-menu-btn{display:none;flex-direction:column;cursor:pointer;padding:.5rem;background:0 0;border:none;z-index:1001}.mobile-menu-btn span{width:25px;height:3px;background:#1e3c72;margin:3px 0;transition:.3s;border-radius:2px}.mobile-menu-btn.active span:first-child{transform:rotate(-45deg) translate(-5px,6px)}.mobile-menu-btn.active span:nth-child(2){opacity:0}.mobile-menu-btn.active span:nth-child(3){transform:rotate(45deg) translate(-5px,-6px)}.mobile-nav{display:none;top:100%;width:100%;background:rgba(255,255,255,.98);box-shadow:0 2px 20px rgba(0,0,0,.1);z-index:999}.mobile-nav.active{display:block;animation:.3s slideDown}@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}.mobile-nav ul{list-style:none;padding:1rem 0}.mobile-nav li{border-bottom:1px solid rgba(30,60,114,.1)}.mobile-nav li:last-child{border-bottom:none}.mobile-nav a{display:block;padding:1rem;text-decoration:none;transition:.3s}.mobile-nav a:hover{background:rgba(30,60,114,.1);color:#1e3c72}.hero{padding:5rem 0;color:#fff;position:relative;overflow:hidden;background:linear-gradient(rgba(30,60,114,.35),rgba(42,82,152,.45)),url('img/writiq/background.jpeg') center/cover no-repeat;min-height:70vh;display:flex;align-items:center}.hero::before{content:'';top:0;right:0;bottom:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');opacity:.3}.hero-content{position:relative;z-index:1}.hero h1{font-size:3.5rem;margin-bottom:1rem;font-weight:800;text-shadow:0 2px 4px rgba(0,0,0,.1);animation:1s fadeInUp}.hero p{font-size:1.3rem;margin-bottom:2rem;opacity:.9;max-width:600px;margin-left:auto;margin-right:auto;animation:1s .2s both fadeInUp}.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:1s .4s both fadeInUp}.dashboard-types,.features-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}.cta-btn{padding:1rem 2rem;border:none;border-radius:50px;font-size:1.1rem;display:inline-block}.cta-primary{background:rgba(255,255,255,.2);color:#fff;border:2px solid rgba(255,255,255,.3)}.cta-primary:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}.cta-secondary{background:#fff;color:#1e3c72;border:2px solid #fff}.cta-secondary:hover{background:#f8f9ff;transform:translateY(-2px)}.features{padding:5rem 0;background:rgba(255,255,255,.95)}.features h2{font-size:2.5rem;margin-bottom:3rem}.feature-card h3,.feature-icon{font-size:1.5rem;margin-bottom:1rem}.features-grid{display:grid}.feature-card{background:#fff;padding:2rem;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:.3s;border:1px solid rgba(102,126,234,.1)}.feature-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,.15)}.feature-icon{width:60px;height:60px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:15px;display:flex;align-items:center;justify-content:center;color:#fff}.feature-card p{color:#666;line-height:1.6}.how-to-use{padding:5rem 0;background:rgba(255,255,255,.95);color:#333}.how-to-use h2{font-size:2.5rem;margin-bottom:1rem;text-align:center}.how-to-use>p{text-align:center;font-size:1.2rem;margin-bottom:3rem;color:#666;max-width:600px;margin-left:auto;margin-right:auto}.usage-flow{max-width:900px;margin:0 auto}.flow-step{margin-bottom:3rem;display:flex;align-items:flex-start;gap:2rem}.flow-step:last-child{margin-bottom:0}.step-number,.step-icon{width:60px;height:60px;background:linear-gradient(135deg,#1e3c72,#2a5298);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.step-icon{background:linear-gradient(135deg,#667eea,#764ba2);font-size:2rem}.step-content{flex:1}.step-content h3{font-size:1.5rem;margin-bottom:1rem;color:#1e3c72}.step-content p{color:#666;line-height:1.6;margin-bottom:1rem}.feature-list{margin-top:1.5rem}.feature-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;padding:1rem;background:rgba(255,255,255,.8);border-radius:10px;border:1px solid rgba(30,60,114,.1)}.feature-item:last-child{margin-bottom:0}.feature-bullet{font-size:1.2rem;flex-shrink:0;width:30px;text-align:center}.student-flow,.teacher-flow{background:rgba(255,255,255,.6);padding:2rem;border-radius:15px;border:2px solid rgba(30,60,114,.1)}.dashboard-preview{padding:5rem 0;color:#fff;text-align:center}.dashboard-preview h2{font-size:2.5rem;margin-bottom:2rem}.dashboard-types{display:grid;margin-top:3rem}.dashboard-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:2rem;border-radius:20px;transition:.3s}.dashboard-card:hover{background:rgba(255,255,255,.2);transform:translateY(-5px)}.dashboard-card h3{font-size:1.5rem;margin-bottom:1rem}.footer{background:rgba(0,0,0,.1);color:#fff;padding:2rem 0}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@media (min-width:1200px){.container{max-width:1400px}.hero h1{font-size:4rem}.hero p{font-size:1.4rem}.features-grid{grid-template-columns:repeat(3,1fr)}}@media (max-width:1199px){.container{padding:0 15px}.hero h1{font-size:3.2rem}.features-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}.dashboard-types{gap:1.5rem}}@media (max-width:991px){.dashboard-preview,.features,.hero,.how-to-use{padding:4rem 0}.nav-links{display:none}.mobile-menu-btn{display:flex}.hero{min-height:60vh}.hero h1{font-size:2.8rem;margin-bottom:1.5rem}.features h2,.hero p{margin-bottom:2.5rem}.hero p{font-size:1.2rem}.dashboard-preview h2,.features h2,.how-to-use h2{font-size:2.2rem}.flow-step{flex-direction:column;align-items:center;text-align:center}.step-number,.step-icon{margin-bottom:1rem}}@media (max-width:767px){.nav{padding:.75rem 0}.login-btn{padding:.6rem 1.2rem;font-size:.9rem}.dashboard-preview,.features,.hero,.how-to-use{padding:3rem 0}.hero{min-height:50vh}.hero h1{font-size:2.3rem;line-height:1.2}.hero p{font-size:1.1rem;margin-bottom:2rem;padding:0 1rem}.cta-buttons{flex-direction:column;align-items:center;gap:1rem}.cta-btn{width:80%;max-width:300px;text-align:center}.features h2,.how-to-use h2{font-size:2rem;margin-bottom:2rem}.features-grid{grid-template-columns:1fr;gap:1.5rem}.dashboard-card,.feature-card{padding:1.5rem}.dashboard-preview h2{font-size:2rem;margin-bottom:1.5rem}.dashboard-types{grid-template-columns:1fr;gap:1rem}.flow-step{gap:1rem}.student-flow,.teacher-flow{padding:1.5rem}}@media (max-width:575px){.container{padding:0 10px}.nav{padding:.5rem 0}.logo img{height:35px}.dashboard-preview h2,.logo{font-size:1.8rem}.login-btn{padding:.5rem 1rem;font-size:.85rem}.hero{padding:2.5rem 0;min-height:45vh}.hero h1{font-size:2rem;margin-bottom:1rem}.cta-btn,.hero p{font-size:1rem}.features h2,.hero p,.how-to-use h2{margin-bottom:1.5rem}.cta-btn{padding:.9rem 1.8rem;width:90%}.dashboard-preview,.features,.how-to-use{padding:2.5rem 0}.features h2,.how-to-use h2{font-size:1.8rem}.feature-card{padding:1.2rem}.dashboard-card h3,.feature-card h3{font-size:1.3rem}.dashboard-card p,.feature-card p{font-size:.95rem}.student-flow,.teacher-flow{padding:1rem}.feature-item{padding:.8rem;flex-direction:column;text-align:center;gap:.5rem}}@media (max-width:375px){.hero h1{font-size:1.8rem}.hero p{font-size:.95rem}.dashboard-preview h2,.features h2,.how-to-use h2{font-size:1.6rem}.dashboard-card,.feature-card{padding:1rem}.cta-btn{width:95%;padding:.8rem 1.5rem}.student-flow,.teacher-flow{padding:.8rem}}@media (max-height:600px) and (orientation:landscape){.dashboard-preview,.features,.hero,.how-to-use{padding:2rem 0}.hero{min-height:80vh}.hero h1{font-size:2.2rem;margin-bottom:.8rem}.hero p{margin-bottom:1.2rem}}@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){.hero{background-image:linear-gradient(rgba(30,60,114,.2),rgba(42,82,152,.2)),url(img/writiq/background.jpeg)}}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-left">
+                <a href="#" class="logo">
+                    <img src="img/writiq/writiqLOGO2.png" height="50px" alt="Writiq Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                    <span class="logo-text" style="display: none;">Writiq</span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-to-use">How to Use</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="login-btn" onclick="redirectToLogin()">Register / Login</button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a href="#features" onclick="closeMobileMenu()">Features</a></li>
+                    <li><a href="#how-to-use" onclick="closeMobileMenu()">How to Use</a></li>
+                    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+                    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Writiq</h1>
+                <p>The educational platform connecting students and teachers through innovative writing tools and personalized learning experiences.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-btn cta-primary" onclick="redirectToLogin()">Get Started</a>
+                 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Powerful Features for Modern Education</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Student Dashboard</h3>
+                    <p>Access your assignments, track progress, and utilize powerful writing tools designed to enhance your learning experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Teacher Portal</h3>
+                    <p>Manage classes, create assignments, review submissions, and monitor student progress with comprehensive analytics.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Platform</h3>
+                    <p>Advanced authentication and database security ensure your educational data is protected and accessible only to authorized users.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Real-time analytics and progress monitoring help both students and teachers stay on top of educational goals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3>Writing Tools</h3>
+                    <p>Specialized writing assistance and resources to help students improve their composition and communication skills.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Web-Based Access</h3>
+                    <p>Access your educational hub from anywhere with our responsive, cross-platform web application.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use" id="how-to-use">
+        <div class="container">
+            <h2>How Writiq Works</h2>
+            <h3 style="text-align: center">Getting started with Writiq is simple. Follow these steps to unlock your personalized educational experience.</h3>
+
+            
+            <div class="usage-flow">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Start Your Journey</h3>
+                        <p>Visit our platform and choose your path. New users can <strong>Sign Up</strong> by creating an account with your email and selecting your role (Student or Teacher). Returning users simply <strong>Log In</strong> with their credentials.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Enter Your Personalized Dashboard</h3>
+                        <p>Once logged in, Writiq automatically directs you to your role-specific dashboard. Each interface is carefully designed to match your educational needs and responsibilities.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-step student-flow">
+                    <div class="step-icon">🎓</div>
+                    <div class="step-content">
+                        <h3>For Students</h3>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-bullet">📚</span>
+                                <div>
+                                    <strong>My Courses:</strong> Access all your enrolled classes and subjects in one organized space
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-bullet">📝</span>
+                                <div>
+                                    <strong>Assignments Hub:</strong> View upcoming tasks, due dates, and submit your work with ease
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-bullet">📊</span>
+                                <div>
+                                    <strong>Progress Tracker:</strong> Monitor your grades, completed lessons, and academic performance
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-bullet">🎯</span>
+                                <div>
+                                    <strong>Learning Resources:</strong> Access educational materials, notes, and writing assistance tools
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-step teacher-flow">
+                    <div class="step-icon">👨‍🏫</div>
+                    <div class="step-content">
+                        <h3>For Teachers</h3>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-bullet">🏫</span>
+                                <div>
+                                    <strong>Class Management:</strong> Oversee all your classes, view enrolled students, and organize course content
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-bullet">✏️</span>
+                                <div>
+                                    <strong>Assignment Creator:</strong> Build and publish engaging assignments and educational content
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-bullet">✅</span>
+                                <div>
+                                    <strong>Grading Center:</strong> Review student submissions, provide feedback, and assign grades efficiently
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-bullet">📈</span>
+                                <div>
+                                    <strong>Analytics Dashboard:</strong> Track student progress and gain insights into class performance
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Collaborate & Succeed</h3>
+                        <p>Whether you're submitting assignments as a student or providing feedback as a teacher, Writiq facilitates seamless communication and collaboration. Track progress, share resources, and achieve educational goals together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview" id="about">
+        <div class="container">
+            <h2>Tailored Experiences for Every User</h2>
+            <p>Writiq adapts to your role, providing specialized tools and interfaces for optimal productivity.</p>
+            <div class="dashboard-types">
+                <div class="dashboard-card">
+                    <h3>🎓 Student Experience</h3>
+                    <p>Dedicated dashboard with assignments, learning resources, progress tracking, and writing assistance tools tailored for academic success.</p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>👨‍🏫 Teacher Experience</h3>
+                    <p>Comprehensive management tools for classes, assignments, student submissions, and progress monitoring with detailed analytics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>&copy; 2025 Writiq. Powered by <a href="https://aopublishing.com.tr" style="color: white; text-decoration: none;"><img src="img/logoWf.png" alt="AOPublishing" style="height: 30px; vertical-align: middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"><span style="display: none;">AOPublishing</span></a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            mobileNav.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            mobileNav.classList.remove('active');
+            menuBtn.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navRight = document.querySelector('.nav-right');
+            
+            if (!navRight.contains(event.target) && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Redirect to login page function
+        function redirectToLogin() {
+            // Replace 'https://your-login-site.com'  your actual login page URL
+            window.location.href = 'https://writiq.aopublishing.com.tr';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Close mobile menu on window resize if screen becomes larger
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 991) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
