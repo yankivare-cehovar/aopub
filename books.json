@@ -1,0 +1,60 @@
+[
+    {
+        "title": "YDT'yi Hissetmek",
+        "image": "img/kitap1.jpg",
+        "difficulty": 3.5,
+        "style": "ÖSYM'ye Giriş",
+        "badges": [
+            { "text": "Yeni", "color": "#dc3545" },
+            { "text": "İndirimde", "color": "#28a745" }
+        ],
+        "tests": [
+            { "name": "Deneme 1", "link": "#" },
+            { "name": "Deneme 2", "link": "#" }
+        ],
+        "stores": [
+            { "name": "Google Play", "link": "#" },
+            { "name": "Amazon", "link": "#" }
+        ]
+    },
+    {
+        "title": "YDT'yi Anlamak",
+        "image": "img/kitap2.jpg",
+        "difficulty": 5.5,
+        "style": "ÖSYM Tarzı",
+        "badges": [
+            { "text": "Güncellendi", "color": "#007bff" }
+        ],
+        "tests": [
+            { "name": "Deneme Sınavı 1", "link": "#" },
+            { "name": "Deneme Sınavı 2", "link": "#" }
+        ],
+        "stores": [
+            { "name": "Google Play", "link": "#" }
+        ]
+    },
+    {
+        "title": "YDT'yi Anlamamak",
+        "image": "img/kitap3.jpg",
+        "difficulty": 7,
+        "style": "ÖSYM Son Nokta",
+        "tests": [],
+        "stores": []
+    },
+    {
+        "title": "YDT'ye Üşenmek",
+        "image": "img/kitap4.jpg",
+        "difficulty": 8,
+        "style": "Mini Testler",
+        "tests": [
+            { "name": "Mini Test 1", "link": "#" },
+            { "name": "Mini Test 2", "link": "#" },
+            { "name": "Mini Test 3", "link": "#" }
+        ],
+        "stores": [
+            { "name": "Google Play", "link": "#" },
+            { "name": "Amazon", "link": "#" },
+            { "name": "Apple Books", "link": "#" }
+        ]
+    }
+]

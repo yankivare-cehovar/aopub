@@ -12,14 +12,80 @@
 <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
 <link href="css/jcarousel.css" rel="stylesheet" />
 <link href="css/flexslider.css" rel="stylesheet" />
-<link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet" />
- 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+<style>
+    .hero-feature {
+        margin-bottom: 30px;
+    }
+    .thumbnail {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .thumbnail .caption {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .thumbnail img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+    }
+    .tests-container {
+        display: none; /* Hidden by default */
+        margin-top: 15px;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+    }
+    .image-container {
+        position: relative;
+    }
+    .book-badge {
+        position: relative;
+        display: block;
+        width: fit-content;
+        margin-bottom: 5px;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1;
+    }
+    .badge-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+    }
+    .caption .btn-toolbar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .caption .btn-group {
+        margin-left: 5px;
+    }
+    .buy-dropdown .dropdown-toggle {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+    .difficulty-bar {
+        height: 8px;
+        background-color: #e9ecef;
+        border-radius: .25rem;
+        margin-top: 5px;
+        overflow: hidden;
+    }
+    .difficulty-level {
+        height: 100%;
+        background-color: #007bff;
+        border-radius: .25rem;
+        transition: width 0.6s ease;
+    }
+</style>
 </head>
 <body>
 <div id="wrapper">
@@ -41,7 +107,7 @@
 						<li class="active"><a href="publications.html">Yayınlarımız</a></li>
 						<li><a href="landing.html">Writiq</a></li>
                         <li><a href="about.html">Hakkımızda</a></li>
-							<li><a href="https://hesap.aopublishing.com.tr/" target="_blank">Giriş yap</a></li> 
+						<li><a href="https://hesap.aopublishing.com.tr/" target="_blank">Giriş yap</a></li> 
                     </ul>
                 </div>
             </div>
@@ -55,102 +121,51 @@
 			</div>
 		</div>
 	</div>
+	</section>
 	<section id="content">
-	<div class="container">	 
-		
-		<!-- end divider -->
-
-
-		<div class="row"> 
-			<div class="col-lg-3">
-				<div class="pricing-box-item">
-					<div class="pricing-heading">
-						<h3><strong>YDT'yi Hissetmek</strong></h3>
-					</div>
-					<div class="pricing-container">
-						<ul>
-							<li><i class="icon-ok"></i><a href="img/kitap1.jpg" class="fancybox" title="YDT'yi Hissetmek"><img src="img/kitap1.jpg"></a></li>
-							<li><i class="icon-ok"></i>x Adet 80 Soruluk Deneme</li>
-							<li><i class="icon-ok"></i>Zorluk Derecesi: 3.5</li>
-							<li><i class="icon-ok"></i>ÖSYM'ye giriş </li>
-							<li><i class="icon-ok"></i>Özenle yazılmış sorular</li>
-						</ul>
-					</div>
-					<div class="pricing-action">
-						<a href="#" class="btn btn-medium btn-theme"><i class="icon-bolt"></i> Örnek Sayfa İndir</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="pricing-box-item">
-					<div class="pricing-heading">
-						<h3><strong>YDT'yi Anlamak</strong></h3>
-					</div>
-					<div class="pricing-container">
-						<ul>
-							<li><i class="icon-ok"></i><a href="img/kitap2.jpg" class="fancybox" title="YDT'yi Anlamak"><img src="img/kitap2.jpg"></a></li>
-							<li><i class="icon-ok"></i>x Adet 60 Soruluk Deneme</li>
-							<li><i class="icon-ok"></i>Zorluk Derecesi: 5.5</li>
-							<li><i class="icon-ok"></i>ÖSYM Tarzı </li>
-							<li><i class="icon-ok"></i>Özenle yazılmış sorular</li>
-						</ul>
-					</div>
-					<div class="pricing-action">
-						<a href="#" class="btn btn-medium btn-theme"><i class="icon-bolt"></i> Örnek Sayfa İndir</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="pricing-box-item">
-					<div class="pricing-heading">
-						<h3><strong>YDT'yi Anlamamak</strong></h3>
-					</div>
-
-					<div class="pricing-container">
-						<ul>
-							<li><i class="icon-ok"></i><a href="img/kitap3.jpg" class="fancybox" title="YDT'yi Anlamamak"><img src="img/kitap3.jpg"></a></li>
-							<li><i class="icon-ok"></i>x Adet 60 Soruluk Deneme</li>
-							<li><i class="icon-ok"></i>Zorluk Derecesi: 7</li>
-							<li><i class="icon-ok"></i>ÖSYM Son Nokta </li>
-							<li><i class="icon-ok"></i>Özenle yazılmış sorular</li>
-						</ul>
-					</div>
-					<div class="pricing-action">
-						<a href="#" class="btn btn-medium btn-theme"><i class="icon-bolt"></i>Örnek Sayfa İndir</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="pricing-box-item activeItem">
-					<div class="pricing-heading">
-						<h3><strong>YDT'ye Üşenmek</strong></h3>
-					</div>
-					<div class="pricing-container">
-						<ul>
-							<li><i class="icon-ok"></i><a href="img/kitap4.jpg" class="fancybox" title="YDT'ye Üşenmek"><img src="img/kitap4.jpg"></a></li>
-							<li><i class="icon-ok"></i>x adet 20+4 Soruluk Deneme</li>
-							<li><i class="icon-ok"></i>Zorluk Derecesi: 3 -> 8</li>
-							<li><i class="icon-ok"></i>Mini Testler</li>
-							<li><i class="icon-ok"></i>Özenle yazılmış sorular</li>
-						</ul>
-					</div>
-					<div class="pricing-action">
-						<a href="https://drive.google.com/file/d/1z8CMTJvU_40SA-B863QZm-i_HjJC6K3J/view?usp=sharing" target="_blank" class="btn btn-medium btn-theme"><i class="icon-bolt"></i> Örnek Sayfa İndir</a>
-					</div>
-				</div>
-			</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="container">
+        <div class="row">
+            <div class="col-lg-12" style="margin-bottom: 20px;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="text" id="search-input" class="form-control" placeholder="Kitap veya deneme adı ile ara...">
+                    </div>
+                    <div class="col-md-3">
+                        <select id="style-filter" class="form-control">
+                            <option value="">Tüm Tarzlar</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="difficulty-filter" class="form-control">
+                            <option value="">Tüm Zorluklar</option>
+                            <option value="1-3">Kolay (1-3)</option>
+                            <option value="4-6">Orta (4-6)</option>
+                            <option value="7-8">Zor (7-8)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="sort-order" class="form-control">
+                            <option value="default">Sıralama</option>
+                            <option value="difficulty-asc">Zorluk (Artan)</option>
+                            <option value="difficulty-desc">Zorluk (Azalan)</option>
+                            <option value="title-asc">Başlık (A-Z)</option>
+                            <option value="title-desc">Başlık (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="book-list">
+            <!-- Book cards will be injected here by JavaScript -->
+        </div>
 	</div>
 	</section>
 
-			<!--optik-->
-			<div style="text-align: center; margin: 20px 0px;">
-				<a href="optik.html" class="btn btn-primary" target="_blank">Optik Form</a>
-			</div>
-			<!--optikend-->
+	<!--optik-->
+	<div style="text-align: center; margin: 20px 0px;">
+		<a href="optik.html" class="btn btn-primary" target="_blank">Optik Form</a>
+	</div>
+	<!--optikend-->
 			
 	<footer>
 		<div class="container">
@@ -189,7 +204,8 @@
 					<div class="widget">
 						<h5 class="widgetheading">Son Havadisler</h5>
 						<ul class="link-list">
-							<li><a href="#">Pek de bir şey olmuyorsa demek.</a></li>					</ul>
+							<li><a href="#">Pek de bir şey olmuyorsa demek.</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -209,16 +225,14 @@
 						<ul class="social-network">
 							<li><a href="#" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a></li>
 							<li><a href="#" data-placement="top" title="Youtube"><i class="fa fa-youtube"></i></a></li>
-							<!--<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-							<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>-->
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-		</footer>
+	</footer>
 </div>
+
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
     ================================================== -->
@@ -228,10 +242,158 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.fancybox.pack.js"></script>
 <script src="js/jquery.fancybox-media.js"></script> 
-<script src="js/portfolio/jquery.quicksand.js"></script>
-<script src="js/portfolio/setting.js"></script>
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
+
+<script>
+$(document).ready(function() {
+    const bookList = $('#book-list');
+    const searchInput = $('#search-input');
+    const styleFilter = $('#style-filter');
+    const difficultyFilter = $('#difficulty-filter');
+    const sortOrder = $('#sort-order');
+    let allBooks = [];
+    let originalOrder = [];
+
+    function renderBooks(booksToRender) {
+        bookList.empty();
+        if (booksToRender.length === 0) {
+            bookList.html('<div class="col-lg-12"><p class="text-center">Aramanızla eşleşen kitap bulunamadı.</p></div>');
+            return;
+        }
+        booksToRender.forEach((book, index) => {
+            const testsHtml = book.tests.length > 0 
+                ? book.tests.map(test => `<a href="${test.link}" class="list-group-item" target="_blank">${test.name}</a>`).join('')
+                : '<p>Bu kitap için henüz test eklenmemiş.</p>';
+
+            let buttonsHtml = '<a href="#" class="btn btn-primary btn-sm view-tests">Testleri Gör</a>';
+            if (book.stores && book.stores.length > 0) {
+                const storeLinks = book.stores.map(store => `<li><a href="${store.link}" target="_blank">${store.name}</a></li>`).join('');
+                buttonsHtml += `
+                    <div class="btn-group buy-dropdown">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header">Satın Al</li>
+                            ${storeLinks}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            let badgeHtml = '';
+            if (book.badges && book.badges.length > 0) {
+                const badgeContainer = book.badges.map(badge => 
+                    `<div class="book-badge" style="background-color: ${badge.color}">${badge.text}</div>`
+                ).join('');
+                badgeHtml = `<div class="badge-container">${badgeContainer}</div>`;
+            }
+            
+            const difficultyPercentage = (book.difficulty / 8) * 100;
+
+            const bookCardHtml = `
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <div class="image-container">
+                            ${badgeHtml}
+                            <a href="${book.image}" class="fancybox" title="${book.title}">
+                                <img src="${book.image}" alt="${book.title}">
+                            </a>
+                        </div>
+                        <div class="caption">
+                            <div>
+                                <h3>${book.title}</h3>
+                                <p><strong>Tarz:</strong> ${book.style}</p>
+                                <div>
+                                    <p style="margin-bottom: 0;"><strong>Zorluk:</strong> ${book.difficulty}/8</p>
+                                    <div class="difficulty-bar">
+                                        <div class="difficulty-level" style="width: ${difficultyPercentage}%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-toolbar" style="margin-top: 15px;">
+                                ${buttonsHtml}
+                            </div>
+                        </div>
+                        <div class="tests-container list-group">${testsHtml}</div>
+                    </div>
+                </div>
+            `;
+            bookList.append(bookCardHtml);
+        });
+        // Re-initialize fancybox for new items
+        $('.fancybox').fancybox();
+    }
+
+    function applyFiltersAndSort() {
+        const searchTerm = searchInput.val().toLowerCase();
+        const selectedStyle = styleFilter.val();
+        const selectedDifficulty = difficultyFilter.val();
+        const selectedSort = sortOrder.val();
+
+        let processedBooks = [...allBooks];
+
+        // Filtering
+        processedBooks = processedBooks.filter(book => {
+            const titleMatch = book.title.toLowerCase().includes(searchTerm);
+            const testMatch = book.tests.some(test => test.name.toLowerCase().includes(searchTerm));
+            const searchMatch = titleMatch || testMatch;
+
+            const styleMatch = !selectedStyle || book.style === selectedStyle;
+
+            const difficultyMatch = !selectedDifficulty || (
+                selectedDifficulty === '1-3' && book.difficulty >= 1 && book.difficulty <= 3 ||
+                selectedDifficulty === '4-6' && book.difficulty >= 4 && book.difficulty <= 6 ||
+                selectedDifficulty === '7-8' && book.difficulty >= 7 && book.difficulty <= 8
+            );
+
+            return searchMatch && styleMatch && difficultyMatch;
+        });
+
+        // Sorting
+        if (selectedSort === 'difficulty-asc') {
+            processedBooks.sort((a, b) => a.difficulty - b.difficulty);
+        } else if (selectedSort === 'difficulty-desc') {
+            processedBooks.sort((a, b) => b.difficulty - a.difficulty);
+        } else if (selectedSort === 'title-asc') {
+            processedBooks.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (selectedSort === 'title-desc') {
+            processedBooks.sort((a, b) => b.title.localeCompare(a.title));
+        } else if (selectedSort === 'default') {
+            // To sort by default, we need to re-filter the original array
+            processedBooks = originalOrder.filter(book => processedBooks.includes(book));
+        }
+
+        renderBooks(processedBooks);
+    }
+
+    // Event listener for viewing tests
+    bookList.on('click', '.view-tests', function(e) {
+        e.preventDefault();
+        $(this).closest('.thumbnail').find('.tests-container').slideToggle();
+    });
+
+    searchInput.on('keyup', applyFiltersAndSort);
+    styleFilter.on('change', applyFiltersAndSort);
+    difficultyFilter.on('change', applyFiltersAndSort);
+    sortOrder.on('change', applyFiltersAndSort);
+
+    // Fetch book data from JSON file
+    $.getJSON('books.json', function(data) {
+        allBooks = data;
+        originalOrder = [...data];
+
+        // Populate style filter
+        const styles = [...new Set(allBooks.map(book => book.style))];
+        styles.forEach(style => {
+            styleFilter.append(`<option value="${style}">${style}</option>`);
+        });
+
+        renderBooks(allBooks);
+    });
+});
+</script>
 </body>
 </html>
