@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>AO Publishing - Yayınlarımız</title>
+<title>AO Publishing - YDT Denemeleri ve İngilizce Kitapları</title>
 <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="İngilizce Sınavları için kaynağın hası!" />
+<meta name="description" content="AO Publishing'in YDT denemeleri, İngilizce sınav kitapları ve özgün yayınları ile sınavlara en iyi şekilde hazırlanın. Güncel ve kaliteli içerikler." />
 <link rel="canonical" href="https://aopublishing.com.tr/publications.html">
 <!-- css -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -85,6 +85,31 @@
         border-radius: .25rem;
         transition: width 0.6s ease;
     }
+    /* Responsive adjustments for the book details modal */
+    #book-details-modal .row {
+        margin: 0; /* Remove default row margins */
+    }
+    #book-details-modal .col-md-6 {
+        padding: 15px; /* Add some padding */
+    }
+    @media (max-width: 767px) { /* For screens smaller than 768px (mobile) */
+        #book-details-modal .col-md-6 {
+            width: 100%; /* Make columns full width */
+            float: none; /* Remove float */
+        }
+        #modal-book-image {
+            max-width: 80%; /* Limit image width */
+            height: auto;
+            display: block;
+            margin: 0 auto 15px auto; /* Center image and add bottom margin */
+        }
+    }
+    @media (min-width: 768px) { /* For screens larger than 767px (desktop) */
+        #book-details-modal {
+            max-width: 800px; /* Set a max-width for desktop */
+            margin: 0 auto; /* Center the modal */
+        }
+    }
 </style>
 </head>
 <body>
@@ -117,7 +142,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="pageTitle">Yayınlarımız</h2>
+				<h1 class="pageTitle">Yayınlarımız</h1>
 			</div>
 		</div>
 	</div>
@@ -160,6 +185,24 @@
         </div>
 	</div>
 	</section>
+
+	<!-- Hidden modal content for Fancybox -->
+	<div id="book-details-modal" style="display: none;">
+		<div class="row">
+			<div class="col-md-6">
+				<img id="modal-book-image" src="" alt="" style="width:100%; height:auto;">
+			</div>
+			<div class="col-md-6">
+				<h3 id="modal-book-title"></h3>
+				<p><strong>Tarz:</strong> <span id="modal-book-style"></span></p>
+				<p><strong>Zorluk:</strong> <span id="modal-book-difficulty"></span>/8</p>
+				<div class="difficulty-bar"><div id="modal-difficulty-level" class="difficulty-level"></div></div>
+				<p id="modal-book-description"></p>
+				<div id="modal-book-tests"></div>
+				<div id="modal-book-stores"></div>
+			</div>
+		</div>
+	</div>
 
 	<!--optik-->
 	<div style="text-align: center; margin: 20px 0px;">
@@ -298,7 +341,7 @@ $(document).ready(function() {
                     <div class="thumbnail">
                         <div class="image-container">
                             ${badgeHtml}
-                            <a href="${book.image}" class="fancybox" title="${book.title}">
+                            <a href="#book-details-modal" class="fancybox-book-details" data-book-index="${index}">
                                 <img src="${book.image}" alt="${book.title}">
                             </a>
                         </div>
@@ -324,7 +367,25 @@ $(document).ready(function() {
             bookList.append(bookCardHtml);
         });
         // Re-initialize fancybox for new items
-        $('.fancybox').fancybox();
+                // Initialize fancybox for new items with custom settings
+        $('.fancybox-book-details').fancybox({
+            beforeLoad: function() {
+                const bookIndex = $(this.element).data('book-index');
+                const book = allBooks[bookIndex];
+
+                $('#modal-book-image').attr('src', book.image);
+                $('#modal-book-title').text(book.title);
+                $('#modal-book-style').text(book.style);
+                $('#modal-book-description').text(book.description || 'Bu kitap hakkında henüz bir açıklama bulunmamaktadır.');
+                $('#modal-book-difficulty').text(book.difficulty);
+
+                const difficultyPercentage = (book.difficulty / 8) * 100;
+                $('#modal-difficulty-level').css('width', difficultyPercentage + '%');
+
+                $('#modal-book-tests').empty();
+                $('#modal-book-stores').empty();
+            }
+        });
     }
 
     function applyFiltersAndSort() {
