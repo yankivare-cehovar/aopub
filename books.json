@@ -1,7 +1,7 @@
 [
     {
         "title": "YDT'yi Hissetmek",
-        "image": "img/kitap1.jpg",
+        "image": "assets/img/kitap1.jpg",
         "difficulty": 3.5,
         "style": "80 Soruluk Deneme",
         "badges": [
@@ -18,7 +18,7 @@
         },
     {
         "title": "YDT'yi Anlamak",
-        "image": "img/kitap2.jpg",
+        "image": "assets/img/kitap2.jpg",
         "difficulty": 5.5,
         "style": "60 Soruluk Deneme",
         "badges": [
@@ -35,7 +35,7 @@
     },
     {
         "title": "YDT'yi Anlamamak",
-        "image": "img/kitap3.jpg",
+        "image": "assets/img/kitap3.jpg",
         "difficulty": 7,
         "style": "60 Soruluk Deneme",
         "badges": [
@@ -49,7 +49,7 @@
     },
     {
         "title": "YDT'ye Üşenmek",
-        "image": "img/kitap4.jpg",
+        "image": "assets/img/kitap4.jpg",
         "difficulty": 3,
         "style": "Mini Deneme",
         "badges": [
