@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="utf-8">
 <title>AO Publishing - YDT Denemeleri ve İngilizce Kitapları</title>
 <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="AO Publishing'in YDT denemeleri, İngilizce sınav kitapları ve özgün yayınları ile sınavlara en iyi şekilde hazırlanın. Güncel ve kaliteli içerikler." />
+<meta name="keywords" content="YDT, YDT deneme, YDT hazırlık, İngilizce, AO Publishing, online deneme, YDT kitapları, yayınlar, denemeler" />
 <link rel="canonical" href="https://aopublishing.com.tr/publications.html">
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
@@ -27,6 +28,23 @@
 
 <link href="assets/css/flexslider.css" rel="stylesheet" />
 <link href="assets/css/style.css" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Ana Sayfa",
+    "item": "https://aopublishing.com.tr/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Yayınlarımız",
+    "item": "https://aopublishing.com.tr/publications.html"
+  }]
+}
+</script>
 <style>
     .hero-feature {
         margin-bottom: 30px;
@@ -297,8 +315,8 @@
 					</div>
 					<div class="col-lg-6">
 						<ul class="social-network">
-							<li><a href="#" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="#" data-placement="top" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+							<li><a href="#" data-placement="top" title="Instagram" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="#" data-placement="top" title="Youtube" aria-label="Youtube"><i class="fa fa-youtube"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -373,7 +391,7 @@ $(document).ready(function() {
                         <div class="image-container">
                             ${badgeHtml}
                             <a href="#book-details-modal" class="fancybox-book-details" data-book-index="${index}">
-                                <img src="${book.image}" alt="${book.title}">
+                                <img src="${book.image}" alt="${book.title}" loading="lazy">
                             </a>
                         </div>
                         <div class="caption">
