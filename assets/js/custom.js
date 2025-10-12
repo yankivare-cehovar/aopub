@@ -69,12 +69,22 @@ jQuery(document).ready(function($) {
 				return false;
 		});
 
-    // Dropdown on hover
+    // Dropdown on hover and click
     if ($(window).width() >= 992) {
         $('.navbar-nav .dropdown').hover(function() {
             $(this).find('.dropdown-menu').first().stop(true, true).slideDown(200);
         }, function() {
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+        });
+
+        $('.navbar-nav .dropdown > a').click(function(e) {
+            e.preventDefault();
+            location.href = this.href;
+        });
+    } else {
+        $('.navbar-nav .dropdown > a').click(function(e) {
+            e.preventDefault();
+            $(this).parent().toggleClass('open');
         });
     }
 
