@@ -36,7 +36,7 @@
   "@type": "Organization",
   "name": "AO Publishing",
   "url": "https://aopublishing.com.tr/",
-  "logo": "https://aopublishing.com.tr/img/logoBs.png",
+  "logo": "https://aopublishing.com.tr/assets/img/logoBs.png",
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service"
@@ -59,19 +59,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="assets/img/logoBf.png" alt="AO Publishing Logo" loading="lazy"/></a>
+                    <a class="navbar-brand" href="./"><img src="assets/img/logoBf.png" alt="AO Publishing Logo" loading="lazy"/></a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Ana Sayfa</a></li> 
-						<li><a href="publications.html">Yayınlarımız</a></li>
+                        <li class="active"><a href="./">Ana Sayfa</a></li> 
+						<li><a href="publications/">Yayınlarımız</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle">Projelerimiz <b class="caret"></b></a>
                             <ul class="dropdown-menu mega-menu">
                                 <li>
                                     <ul>
                                         <li class="dropdown-header">Uygulamalar</li>
-                                        <li><a href="landing.html">Writiq</a></li>
+                                        <li><a href="landing/">Writiq</a></li>
                                     </ul>
                                 </li>
                                 <li class="divider"></li>
@@ -83,7 +83,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="about/">Hakkımızda</a></li>
                     </ul>
                 </div>
             </div>
@@ -159,62 +159,46 @@
             </div>
         </div>
     </section>
-	<div class="testimonial-area">
-    <div class="testimonial-solid">
-        <div class="container">
-            <div class="testi-icon-area">
-                <div class="quote">
-                    <i class="fa fa-microphone"></i>
-                </div>
-            </div>
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <p>Hiçbir çiçekçi dükkanının demir kepenkleri olmaz. Çünkü kimse aklına getirmez çiçek çalmayı.</p>
-                        <p>
-                            <b>Boris Vian</b>
-                        </p>
-                    </div>
-					<div class="item">
-						<p>"Gücü yetmeyenler, yolu yarıda bırakır. Sen ise yola bile çıkmadan kendi önünü kesiyorsun.”</p>
-                        <p>
-                            <b>Konfüçyüs</b>
-                        </p>
-                    </div>
+	<div class="testimonial-area" style="padding: 40px 0; background: #f9f9f9; border-top: 1px solid #eee;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div style="text-align: center;">
+                    <div id="quote-carousel" class="carousel slide" data-ride="carousel" data-interval="5000" style="min-height: 150px;">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators" style="bottom: -20px;">
+                            <li data-target="#quote-carousel" data-slide-to="0" class="active" style="background-color: #ccc; border-color: #ccc; width: 10px; height: 10px; margin: 1px;"></li>
+                            <li data-target="#quote-carousel" data-slide-to="1" style="background-color: #ccc; border-color: #ccc; width: 10px; height: 10px; margin: 1px;"></li>
+                            <li data-target="#quote-carousel" data-slide-to="2" style="background-color: #ccc; border-color: #ccc; width: 10px; height: 10px; margin: 1px;"></li>
+                            <li data-target="#quote-carousel" data-slide-to="3" style="background-color: #ccc; border-color: #ccc; width: 10px; height: 10px; margin: 1px;"></li>
+                            <li data-target="#quote-carousel" data-slide-to="4" style="background-color: #ccc; border-color: #ccc; width: 10px; height: 10px; margin: 1px;"></li>
+                        </ol>
 
-                    <div class="item">
-                        <p>“En büyük zafer, hiçbir zaman düşmemek değil; her düştüğünde yeniden kalkabilmektir.”</p>
-                        <p>
-                            <b>Konfüçyüs</b>
-                        </p>
-                    </div>
-                    <div class="item">
-                        <p>"Büyük işler küçük bir başlangıçla başlar."</p>
-                        <p>
-                            <b>Lao Tzu</b>
-                        </p>
-                    </div>
-                    <div class="item">
-                        <p>"İlim, her insanın aradığı bir hazine gibidir, o hazineyi bulduğunda her şey daha anlamlı olur."</p>
-                        <p>
-                            <b>Hazreti Ali(?)</b>
-                        </p>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <p style="font-size: 18px; line-height: 1.4; font-style: italic; color: #555; margin-bottom: 10px;">"Hiçbir çiçekçi dükkanının demir kepenkleri olmaz. Çünkü kimse aklına getirmez çiçek çalmayı."</p>
+                                <h5 style="font-weight: bold; color: #333; margin-top: 5px;">- Boris Vian</h5>
+                            </div>
+                            <div class="item">
+                                <p style="font-size: 18px; line-height: 1.4; font-style: italic; color: #555; margin-bottom: 10px;">"Gücü yetmeyenler, yolu yarıda bırakır. Sen ise yola bile çıkmadan kendi önünü kesiyorsun."</p>
+                                <h5 style="font-weight: bold; color: #333; margin-top: 5px;">- Konfüçyüs</h5>
+                            </div>
+                            <div class="item">
+                                <p style="font-size: 18px; line-height: 1.4; font-style: italic; color: #555; margin-bottom: 10px;">"En büyük zafer, hiçbir zaman düşmemek değil; her düştüğünde yeniden kalkabilmektir."</p>
+                                <h5 style="font-weight: bold; color: #333; margin-top: 5px;">- Konfüçyüs</h5>
+                            </div>
+                            <div class="item">
+                                <p style="font-size: 18px; line-height: 1.4; font-style: italic; color: #555; margin-bottom: 10px;">"Büyük işler küçük bir başlangıçla başlar."</p>
+                                <h5 style="font-weight: bold; color: #333; margin-top: 5px;">- Lao Tzu</h5>
+                            </div>
+                            <div class="item">
+                                <p style="font-size: 18px; line-height: 1.4; font-style: italic; color: #555; margin-bottom: 10px;">"İlim, her insanın aradığı bir hazine gibidir, o hazineyi bulduğunda her şey daha anlamlı olur."</p>
+                                <h5 style="font-weight: bold; color: #333; margin-top: 5px;">- Hazreti Ali</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
-				<ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="">
-                        <a href="#"></a>
-                    </li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1" class="">
-                        <a href="#"></a>
-                    </li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2" class="active">
-                        <a href="#"></a>
-                    </li>
-                    <li data-target="#carousel-example-generic" data-slide-to="3" class="">
-                        <a href="#"></a>
-                    </li>
-                </ol>
             </div>
         </div>
     </div>
@@ -226,72 +210,9 @@
         </div>
 </div>
 </section>
-	<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Our Contact</h5>
-					<address>
-					<strong>AO Publishing</strong><br>
-					308 Negra Arroyo Lane<br>
-					3828 Piermont Dr, Albuquerque, NM.</address>
-					<p>
-						<i class="icon-phone"></i> - <br>
-						<i class="icon-envelope-alt"></i> -
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Hızlı Erişim</h5>
-					<ul class="link-list">
-						<li><a href="index.html">Ana Sayfa</a></li>
-						<li><a href="publications.html">Yayınlarımız</a></li>
-						<li><a href="landing.html">Writiq</a></li>
-						<li><a href="about.html">Hakkımızda</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Son Paylaşılanlar</h5>
-					<ul class="link-list">
-						<li><a href="publications.html">YDT Denemeleri</a></li>						
-						<li><a href="landing.html">Writiq</a></li>	
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Son Havadisler</h5>
-					<ul class="link-list">
-						<li><a href="landing.html">Writiq'e yeni özellikler geldi!</a></li>					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="sub-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="copyright">
-						<p>
-							<span>&copy; AO Publishing</span>
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<ul class="social-network">
-						<li><a href="https://www.instagram.com/aopublishingydt/" data-placement="top" title="Instagram" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
-						<li><a href="#" data-placement="top" title="Youtube" aria-label="Youtube"><i class="fa fa-youtube"></i></a></li>
-						
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	</footer>
+	<footer id="footer">
+        <!-- Footer will be loaded by footer-loader.js -->
+    </footer>
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
@@ -307,6 +228,62 @@
 <script src="assets/js/jquery.flexslider.js"></script>
 <script src="assets/js/animate.js"></script>
 <script src="assets/js/custom.js"></script>
+<script src="assets/js/footer-loader.js"></script>
+
+<script>
+$(document).ready(function() {
+    // Enable swipe support for carousel
+    $("#quote-carousel").on("touchstart", function(event){
+        var yClick = event.originalEvent.touches[0].pageY;
+        var xClick = event.originalEvent.touches[0].pageX;
+        $(this).one("touchmove", function(event){
+            var xMove = event.originalEvent.touches[0].pageX;
+            if( Math.floor(xClick - xMove) > 5 ){
+                $(this).carousel('next');
+            }
+            else if( Math.floor(xClick - xMove) < -5 ){
+                $(this).carousel('prev');
+            }
+        });
+        $("#quote-carousel").on("touchend", function(){
+            $(this).off("touchmove");
+        });
+    });
+    
+    // Enable mouse drag support
+    var isDragging = false;
+    var startX = 0;
+    
+    $("#quote-carousel").on("mousedown", function(e) {
+        isDragging = true;
+        startX = e.pageX;
+        $(this).css("cursor", "grabbing");
+    });
+    
+    $("#quote-carousel").on("mouseup", function(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        $(this).css("cursor", "grab");
+        
+        var endX = e.pageX;
+        if (startX - endX > 50) {
+            $(this).carousel('next');
+        } else if (endX - startX > 50) {
+            $(this).carousel('prev');
+        }
+    });
+    
+    $("#quote-carousel").on("mouseleave", function() {
+        if (isDragging) {
+            isDragging = false;
+            $(this).css("cursor", "grab");
+        }
+    });
+    
+    // Set initial cursor style
+    $("#quote-carousel").css("cursor", "grab");
+});
+</script>
 
 </body>
 </html>
