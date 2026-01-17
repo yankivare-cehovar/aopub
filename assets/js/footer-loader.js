@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // For root (index.html), path is "" or "/"
     // For subfolders (about/index.html), path is "about/"
     const path = window.location.pathname;
-    const isSubfolder = path.includes('/about/') || path.includes('/publications/') || path.includes('/landing/') || path.includes('/optik/');
+    const isSubfolder = path.includes('/about/') || path.includes('/publications/') || path.includes('/writiq/') || path.includes('/gradia/') || path.includes('/optik/');
     const root = isSubfolder ? '../' : './';
 
     const footerHtml = `
@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
 					<ul class="link-list">
 						<li><a href="${root}">Ana Sayfa</a></li>
 						<li><a href="${root}publications/">Yayınlarımız</a></li>
-						<li><a href="${root}landing/">Writiq</a></li>
+						<li><a href="${root}writiq/">Writiq</a></li>
+						<li><a href="${root}gradia/">Gradia</a></li>
 						<li><a href="${root}about/">Hakkımızda</a></li>
 					</ul>
 				</div>
@@ -38,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function() {
 					<h5 class="widgetheading">Son Paylaşılanlar</h5>
 					<ul class="link-list">
 						<li><a href="${root}publications/">YDT Denemeleri</a></li>						
-						<li><a href="${root}landing/">Writiq</a></li>	
+						<li><a href="${root}writiq/">Writiq</a></li>
+						<li><a href="${root}gradia/">Gradia</a></li>	
 					</ul>
 				</div>
 			</div>
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				<div class="widget">
 					<h5 class="widgetheading">Son Havadisler</h5>
 					<ul class="link-list">
-						<li><a href="${root}landing/">Writiq'e yeni özellikler geldi!</a></li>					</ul>
+						<li><a href="${root}writiq/">Writiq'e yeni özellikler geldi!</a></li>					</ul>
 				</div>
 			</div>
 		</div>

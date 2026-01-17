@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writiq - Educational Writing Platform</title>
+    
+    <!-- Meta Tags for Social Media -->
+    <meta name="description" content="Writiq, öğrencileri ve öğretmenleri yenilikçi yazma araçları ve kişiselleştirilmiş öğrenme deneyimleriyle bir araya getiren eğitim platformu.">
+    <meta property="og:title" content="Writiq - Educational Writing Platform">
+    <meta property="og:description" content="Writiq, öğrencileri ve öğretmenleri yenilikçi yazma araçları ve kişiselleştirilmiş öğrenme deneyimleriyle bir araya getiren eğitim platformu.">
+    <meta property="og:image" content="../assets/img/writiq/writiqLOGO2.png">
+    <meta property="og:url" content="https://aopublishing.com.tr/writiq/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --primary-color: #1e3c72;
+            --secondary-color: #00d2ff; /* Bright Cyan for contrast/gradient */
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.3s;
+        }
+        .navbar-brand img {
+            height: 50px;
+        }
+        .nav-link {
+            font-weight: 600;
+            margin: 0 15px;
+            color: var(--dark-color) !important;
+        }
+        .btn-login {
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 50px;
+            padding: 8px 25px;
+            transition: transform 0.2s;
+        }
+        .btn-login:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #6c757d;
+            margin-bottom: 40px;
+        }
+        .hero-image img {
+            width: 100%;
+            /* border-radius: 20px; */
+            /* box-shadow: 0 20px 50px rgba(0,0,0,0.1); */
+            transition: transform 0.1s ease-out; /* Smooth follow */
+            will-change: transform;
+            max-width: 500px; /* Limit size for logo */
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+        }
+        .feature-card {
+            padding: 40px;
+            border-radius: 20px;
+            border: none;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(30, 60, 114, 0.1);
+            color: var(--primary-color);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .feature-card h3 {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 80px 0;
+        }
+        .stat-item h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        .btn-light-custom {
+            background: white;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+        .btn-light-custom:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            background: #f1f3f5;
+        }
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: #6c757d;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-image { margin-top: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/img/writiq/writiqLOGO2.png" alt="Writiq Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about/">About</a></li>
+                    <li class="nav-item"><a class="nav-link btn-login" href="https://writiq.aopublishing.com.tr">Launch App</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1>Welcome to Writiq</h1>
+                    <p class="lead">The educational platform connecting students and teachers through innovative writing tools and personalized learning experiences.</p>
+                    <div class="d-flex gap-3">
+                        <a href="https://writiq.aopublishing.com.tr" class="btn btn-primary btn-lg px-4 rounded-pill">Get Started</a>
+                        <a href="#features" class="btn btn-outline-secondary btn-lg px-4 rounded-pill">Explore Features</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image">
+                    <img src="../assets/img/writiq/writiqLOGO2.png" alt="Writiq App Preview">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Powerful Features</h2>
+                <p class="text-muted">Modern education needs modern tools.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i data-feather="layout"></i></div>
+                        <h3>Student Dashboard</h3>
+                        <p>Access your assignments, track progress, and utilize powerful writing tools designed to enhance your learning experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i data-feather="users"></i></div>
+                        <h3>Teacher Portal</h3>
+                        <p>Manage classes, create assignments, review submissions, and monitor student progress with comprehensive analytics.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i data-feather="shield"></i></div>
+                        <h3>Secure Platform</h3>
+                        <p>Advanced authentication and database security ensure your educational data is protected and accessible only to authorized users.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i data-feather="trending-up"></i></div>
+                        <h3>Progress Tracking</h3>
+                        <p>Real-time analytics and progress monitoring help both students and teachers stay on top of educational goals.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i data-feather="edit-2"></i></div>
+                        <h3>Writing Tools</h3>
+                        <p>Specialized writing assistance and resources to help students improve their composition and communication skills.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i data-feather="globe"></i></div>
+                        <h3>Web-Based Access</h3>
+                        <p>Access your educational hub from anywhere with our responsive, cross-platform web application.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 stat-item">
+                    <h2>100%</h2>
+                    <p>Free to Use</p>
+                </div>
+                <div class="col-md-4 stat-item">
+                    <h2>Secure</h2>
+                    <p>Data Protection</p>
+                </div>
+                <div class="col-md-4 stat-item">
+                    <h2>Cloud</h2>
+                    <p>Always Accessible</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="display-4 fw-bold">Ready to Start Writing?</h2>
+            <p class="lead">Join thousands of students and teachers who are empowering their education with Writiq.</p>
+            <a href="https://writiq.aopublishing.com.tr" class="btn-light-custom">Create Your Account Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 footer-logo">
+                    <img src="../assets/img/writiq/writiqLOGO2.png" alt="Writiq Logo">
+                    <p class="text-muted">Innovating education through technology.</p>
+                </div>
+                <div class="col-md-4 footer-links text-center">
+                    <a href="../" target="_blank">Visit AO Publishing</a>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p class="text-muted">&copy; 2026 Writiq. All rights reserved.</p>
+                    <p class="small text-muted">Powered by <a href="../" target="_blank">AO Publishing</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        feather.replace();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 3D Tilt Effect for Hero Image
+        const heroImage = document.querySelector('.hero-image img');
+        const heroContainer = document.querySelector('.hero-image');
+
+        if (heroImage && heroContainer) {
+            heroContainer.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                const { left, top, width, height } = heroContainer.getBoundingClientRect();
+
+                // Calculate mouse position relative to the center of the image (from -1 to 1)
+                const x = (clientX - left) / width - 0.5;
+                const y = (clientY - top) / height - 0.5;
+
+                // Degrees of rotation (max 15 degrees)
+                const rotateY = x * 30; 
+                const rotateX = -y * 30;
+
+                heroImage.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+
+            heroContainer.addEventListener('mouseleave', () => {
+                heroImage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        }
+
+        // Register Service Worker for PWA (Optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // navigator.serviceWorker.register('/service-worker.js')
+                //     .then(reg => console.log('Service Worker registered'))
+                //     .catch(err => console.log('Service Worker failed', err));
+            });
+        }
+    </script>
+</body>
+</html>
