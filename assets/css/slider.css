@@ -1,0 +1,150 @@
+#featured {
+	width: 100%;
+	background:#000;
+	position:relative;
+	margin:0;
+	padding:0;
+}
+
+#featured .flexslider {
+	padding:0;  
+	background: #fff; 
+	position: relative; 
+	zoom: 1;
+}
+
+.flex-direction-nav .flex-prev { left:0px; }
+.flex-direction-nav .flex-next { right:0px; }
+
+.flex-caption.news-style {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: auto;
+    width: auto;
+    max-width: 80%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 20px;
+    text-align: left;
+    color: #fff;
+    margin: 0;
+    zoom: 1;
+    display: block;
+    border-left: 4px solid #14A085;
+    transition: all 0.3s ease;
+}
+
+.flex-caption.news-style:hover {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.caption-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.caption-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: block;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.caption-text {
+    font-size: 16px;
+    font-weight: 300;
+    display: block;
+    color: #dfdfdf;
+}
+
+.flex-control-paging li a {
+    width: 30px;
+    height: 11px;
+    display: block;
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;
+    text-indent: -9999px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+
+.flex-control-paging li a.flex-active {
+    background: #fff;
+    cursor: default;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    position: static;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.carousel-indicators li, 
+.carousel-indicators [data-bs-target] {
+    width: 12px !important;
+    height: 12px !important;
+    margin: 0 5px !important;
+    background-color: #ddd !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer;
+    display: inline-block !important;
+    opacity: 0.7 !important;
+}
+
+.carousel-indicators .active {
+    background-color: #14A085 !important;
+    opacity: 1 !important;
+}
+
+.item_introtext {
+    background-color: rgba(254, 254, 255, 0.66);
+    margin: 0 auto;
+    display: inline-block;
+    padding: 25px;
+}
+
+.item_introtext strong {
+    font-size: 50px;
+    display: block;
+    padding: 14px 0 30px;
+}
+
+.item_introtext p {
+    font-size: 20px !important;
+    color: #1C1D21;
+    font-weight: bold;
+}
+
+/* Invisible Large Slider Nav */
+.flex-direction-nav {
+    height: 100%;
+}
+
+.flex-direction-nav a {
+    width: 40%;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    background: none !important;
+    text-indent: -9999px;
+    opacity: 1 !important;
+    transition: background-color 0.3s ease;
+}
+
+.flex-direction-nav .flex-prev { left: 0; }
+.flex-direction-nav .flex-next { right: 0; }
+
+.flex-direction-nav a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.flexslider:hover .flex-next { right: 0; }
+.flexslider:hover .flex-prev { left: 0; }

@@ -40,7 +40,10 @@ jQuery(document).ready(function($) {
 
 		
 		// tooltip
-		$('.social-network li a, .options_box .color a').tooltip();
+		var tooltipTriggerList = [].slice.call(document.querySelectorAll('.social-network li a, .options_box .color a'))
+		var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+		  return new bootstrap.Tooltip(tooltipTriggerEl)
+		})
 
 		// fancybox
 		$(".fancybox").fancybox({				

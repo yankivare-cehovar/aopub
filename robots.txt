@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://aopublishing.com.tr/sitemap.xml
+Sitemap: https://aoyayincilik.com/sitemap.xml

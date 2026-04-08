@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700'); 
+@import url('font-awesome.css');  
+@import url('animate.css');
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6em;
+    color: #656565;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+	outline:0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:'Open Sans', Arial, sans-serif;
+	font-weight:700;
+	line-height:1.1em;
+	color:#333;
+	margin-bottom: 20px;
+}
+
+img.img-polaroid {
+	margin:0 0 20px 0;
+}
+
+.img-box {
+	max-width:100%;
+}
+
+.clear {
+	clear:both;
+}
+
+select.selectmenu {
+	display:none;
+}
+
+/* Scrollup button fix */
+.scrollup {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    bottom: 30px; 
+    right: 30px;
+    background: #222;
+    z-index: 9999;
+    outline: 0;
+    text-align: center;
+}
+
+.scrollup:hover, .scrollup:active, .scrollup:focus {
+	opacity:1;
+	text-decoration:none;
+}
+
+.scrollup i {
+	margin-top: 10px;
+	color: #fff;
+}
+
+.scrollup i:hover {
+	text-decoration:none;
+}
+
+/* Typography & Quotes */
+blockquote {
+	font-size:16px;
+	font-weight:400;
+	font-family:'Noto Serif', serif;
+	font-style:italic;
+	padding-left:0;
+	color:#a2a2a2;
+	line-height:1.6em;
+	border:none;
+}
+
+blockquote cite { 
+    display:block; 
+    font-size:12px; 
+    color:#666; 
+    margin-top:10px; 
+}
+
+blockquote cite:before { 
+    content:"\2014 \0020"; 
+}
+
+blockquote cite a,
+blockquote cite a:visited { 
+    color:#555; 
+}
+
+.pullquote-left {
+	display:block;
+	color:#a2a2a2;
+	font-family:'Noto Serif', serif;
+	font-size:14px;
+	line-height:1.6em;
+	padding-left:20px;
+}
+
+.pullquote-right {
+	display:block;
+	color:#a2a2a2;
+	font-family:'Noto Serif', serif;
+	font-size:14px;
+	line-height:1.6em;
+	padding-right:20px;
+}
+
+/* List Styles */
+ul.general {
+	list-style:none;
+	margin-left:0;
+}
+
+ul.link-list {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+ul.link-list li {
+	margin:0;
+	padding:2px 0 2px 0;
+	list-style:none;
+}
+
+/* Heading Utility */
+h4.heading {
+	font-weight:700;
+}
+
+.heading { 
+    margin-bottom: 30px; 
+    position: relative;
+}
+
+.widgetheading {
+	width:100%;
+	padding:0;
+}
+
+/* Alignment & Utilities */
+.absolute {
+	position:absolute;
+}
+
+.relative {
+	position:relative;
+}
+
+.aligncenter {
+	text-align:center;
+}
+
+.aligncenter span {
+	margin-left:0;
+}
+
+.floatright {
+	float:right;
+}
+
+.floatleft {
+	float:left;
+}
+
+.floatnone {
+	float:none;
+}
+
+img.pull-left, .align-left {
+	float:left;
+	margin:0 15px 15px 0;
+}
+
+.widget img.pull-left {
+	float:left;
+	margin:0 15px 15px 0;
+}
+
+img.pull-right, .align-right {
+	float:right;
+	margin:0 0 15px 15px;
+}
+
+article img.pull-left, article .align-left {
+	float:left;
+	margin:5px 15px 15px 0;
+}
+
+article img.pull-right, article .align-right {
+	float:right;
+	margin:5px 0 15px 15px;
+}
+
+.clear-marginbot {
+	margin-bottom:0;
+}
+
+.marginbot10 {
+	margin-bottom:10px;
+}
+.marginbot20 {
+	margin-bottom:20px;
+}
+.marginbot30 {
+	margin-bottom:30px;
+}
+.marginbot40 {
+	margin-bottom:40px;
+}
+
+.clear-margintop {
+	margin-top:0;
+}
+
+.margintop10 {
+	margin-top:10px;
+}
+
+.margintop20 {
+	margin-top:20px;
+}
+
+.margintop30 {
+	margin-top:30px;
+}
+
+.margintop40 {
+	margin-top:40px;
+}

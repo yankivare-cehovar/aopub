@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
 					308 Negra Arroyo Lane<br>
 					3828 Piermont Dr, Albuquerque, NM.</address>
 					<p>
-						<i class="icon-phone"></i> - <br>
-						<i class="icon-envelope-alt"></i> -
+						<i class="fa fa-phone"></i> - <br>
+						<i class="fa fa-envelope"></i> -
 					</p>
 				</div>
 			</div>
@@ -48,7 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
 				<div class="widget">
 					<h5 class="widgetheading">Son Havadisler</h5>
 					<ul class="link-list">
-						<li><a href="${root}writiq/">Writiq'e yeni özellikler geldi!</a></li>					</ul>
+						<li><a href="${root}writiq/">Writiq'e yeni özellikler geldi!</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
