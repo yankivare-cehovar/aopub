@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading">Our Contact</h5>
+					<h5 class="widgetheading">İletişim</h5>
 					<address>
 					<strong>AO Publishing</strong><br>
 					308 Negra Arroyo Lane<br>
 					3828 Piermont Dr, Albuquerque, NM.</address>
 					<p>
 						<i class="fa fa-phone"></i> - <br>
-						<i class="fa fa-envelope"></i> -
+						<i class="fa fa-envelope"></i> aopublishingydt@gmail.com
 					</p>
 				</div>
 			</div>
@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", function() {
 				<div class="widget">
 					<h5 class="widgetheading">Hızlı Erişim</h5>
 					<ul class="link-list">
-						<li><a href="${root}">Ana Sayfa</a></li>
-						<li><a href="${root}publications/">Yayınlarımız</a></li>
-						<li><a href="${root}writiq/">Writiq</a></li>
-						<li><a href="${root}gradia/">Gradia</a></li>
-						<li><a href="${root}about/">Hakkımızda</a></li>
+						<li><a href="https://aoyayincilik.com/">Ana Sayfa</a></li>
+						<li><a href="https://aoyayincilik.com/publications/">Yayınlarımız</a></li>
+						<li><a href="https://aoyayincilik.com/writiq/">Writiq</a></li>
+						<li><a href="https://aoyayincilik.com/gradia/">Gradia</a></li>
+						<li><a href="https://aoyayincilik.com/about/">Hakkımızda</a></li>
 					</ul>
 				</div>
 			</div>

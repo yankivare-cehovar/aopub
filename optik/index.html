@@ -19,14 +19,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aoyayincilik.com/optik/">
 <meta property="og:title" content="AO Publishing - YDT Optik Form ve Cevap Kontrol Sistemi">
-<meta property="og:description" content="AO Publishing'in online optik formu ile YDT deneme sÄ±navÄ± cevaplarÄ±nÄ±zÄ± kolayca kontrol edin ve sonuÃ§larÄ±nÄ±zÄ± anÄ±nda gÃ¶rÃ¼n.">
+<meta property="og:description" content="AO Publishing'in online optik formu ile YDT deneme sınavı cevaplarınızı kolayca kontrol edin ve sonuçlarınızı anında görün.">
 <meta property="og:image" content="https://aoyayincilik.com/assets/img/logoBf.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://aoyayincilik.com/optik/">
 <meta property="twitter:title" content="AO Publishing - YDT Optik Form ve Cevap Kontrol Sistemi">
-<meta property="twitter:description" content="AO Publishing'in online optik formu ile YDT deneme sÄ±navÄ± cevaplarÄ±nÄ±zÄ± kolayca kontrol edin ve sonuÃ§larÄ±nÄ±zÄ± anÄ±nda gÃ¶rÃ¼n.">
+<meta property="twitter:description" content="AO Publishing'in online optik formu ile YDT deneme sınavı cevaplarınızı kolayca kontrol edin ve sonuçlarınızı anında görün.">
 <meta property="twitter:image" content="https://aoyayincilik.com/assets/img/logoBf.png">
 
 
@@ -135,7 +135,7 @@
       flex-wrap: wrap;
     }
 
-    /* ÅÄ±klarÄ±n gÃ¶rÃ¼nÃ¼mÃ¼ - eski halin modern hali */
+    /* Şıkların görünümü - eski halin modern hali */
     .options input[type="radio"] {
       display: none;
     }
@@ -154,28 +154,28 @@
       color: var(--text-color);
     }
 
-    /* Normal seÃ§ildiÄŸinde */
+    /* Normal seçildiğinde */
     .options input[type="radio"]:checked + label {
       background-color: var(--primary-color);
       color: white;
       border-color: var(--primary-color);
     }
 
-    /* KullanÄ±cÄ±nÄ±n doÄŸru iÅŸaretlediÄŸi ÅŸÄ±k: yeÅŸil */
+    /* Kullanıcının doğru işaretlediği şık: yeşil */
     .options input[type="radio"]:checked.correct-user + label {
       background-color: #28a745 !important;
       border-color: #28a745 !important;
       color: white;
     }
 
-    /* YanlÄ±ÅŸ seÃ§ilen ÅŸÄ±k: kÄ±rmÄ±zÄ± */
+    /* Yanlış seçilen şık: kırmızı */
     .options.wrong input[type="radio"]:checked + label {
       background-color: #dc3545 !important;
       border-color: #dc3545 !important;
       color: white;
     }
 
-    /* DoÄŸru ÅŸÄ±k ama kullanÄ±cÄ± iÅŸaretlememiÅŸ: sarÄ± */
+    /* Doğru şık ama kullanıcı işaretlememiş: sarı */
     .options .correct-answer {
       background-color: #ffc107 !important;
       border-color: #ffc107 !important;
@@ -408,26 +408,26 @@
     </div>
     <h1>Optik Form</h1>
     <div style="background-color: var(--secondary-bg); color: var(--secondary-text); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 14px; box-shadow: 0 2px 5px var(--shadow-color);">
-      Bu form, sÄ±nav sonuÃ§larÄ±nÄ±zÄ± kontrol etmek iÃ§in kullanÄ±lmaktadÄ±r. LÃ¼tfen sÄ±nav tÃ¼rÃ¼nÃ¼ seÃ§in ve ardÄ±ndan cevaplarÄ±nÄ±zÄ± iÅŸaretleyin. CevaplarÄ± ezberleyip denemeyi Ã§Ã¶zmek bir ÅŸey anlamanÄ±za katkÄ±da bulunmayacaktÄ±r. Sadece kendinizi kandÄ±rmÄ±ÅŸ olursunuz.
+      Bu form, sınav sonuçlarınızı kontrol etmek için kullanılmaktadır. Lütfen sınav türünü seçin ve ardından cevaplarınızı işaretleyin. Cevapları ezberleyip denemeyi çözmek bir şey anlamanıza katkıda bulunmayacaktır. Sadece kendinizi kandırmış olursunuz.
     </div>
 
     <div style="background-color: var(--secondary-bg); color: var(--secondary-text); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 14px; box-shadow: 0 2px 5px var(--shadow-color);">
-    <em>"Anlamak istemeyene hiÃ§bir ÅŸey Ã¶ÄŸretemem ben."</em> <br> <strong><em>KonfÃ¼Ã§yÃ¼s</em></strong>
+    <em>"Anlamak istemeyene hiçbir şey öğretemem ben."</em> <br> <strong><em>Konfüçyüs</em></strong>
     </div>
     
     <div class="select-group">
       <div>
         <select id="bookType">
-          <option value="">*Kitap SeÃ§in</option>
+          <option value="">*Kitap Seçin</option>
           <option value="hissetmek">YDT'yi Hissetmek</option>
           <option value="anlamak">YDT'yi Anlamak</option>
           <option value="anlamamak">YDT'yi Anlamamak</option>
-          <option value="usenmek">YDT'ye ÃœÅŸenmek</option>
+          <option value="usenmek">YDT'ye Üşenmek</option>
         </select>
       </div>
       <div>
         <select id="testType" disabled>
-          <option value="">*Test SeÃ§in</option>
+          <option value="">*Test Seçin</option>
         </select>
       </div>
     </div>
@@ -450,7 +450,7 @@
 
     <div id="optikForm"></div>
 
-    <button class="submit-btn" onclick="confirmCheck()">CevaplarÄ± Kontrol Et</button>
+    <button class="submit-btn" onclick="confirmCheck()">Cevapları Kontrol Et</button>
 
     <div class="result" id="resultBox" style="display: none;"></div>
   </div>
@@ -473,7 +473,7 @@
       hissetmek: "YDT'yi Hissetmek",
       anlamak: "YDT'yi Anlamak",
       anlamamak: "YDT'yi Anlamamak",
-      usenmek: "YDT'ye ÃœÅŸenmek"
+      usenmek: "YDT'ye Üşenmek"
     };
     
     // Difficulty ratings for each test (0-8 scale, 0=easiest, 8=hardest)
@@ -498,14 +498,14 @@
     
     // Difficulty text based on the 0-8 scale
     const difficultyTexts = [
-      "Ã‡ok Kolay",  // 0
+      "Çok Kolay",  // 0
       "Kolay",      // 1
       "Kolay-Orta", // 2
       "Orta",       // 3
       "Orta-Zor",   // 4
       "Zor",        // 5
-      "Ã‡ok Zor",    // 6
-      "Yok ArtÄ±k"   // 7
+      "Çok Zor",    // 6
+      "Yok Artık"   // 7
     ];
     
     // Feedback texts based on percentage ranges with multiple options
@@ -599,7 +599,7 @@
         field: "text",
         direction: "asc"
       },
-      placeholder: "Kitap SeÃ§in...",
+      placeholder: "Kitap Seçin...",
       allowEmptyOption: true,
       onChange: function(value) {
         updateTests(value);
@@ -609,7 +609,7 @@
 
     const testSelect = new TomSelect('#testType', {
       create: false,
-      placeholder: "Test SeÃ§in...",
+      placeholder: "Test Seçin...",
       allowEmptyOption: true,
       onChange: function(value) {
         generateForm();
@@ -622,7 +622,7 @@
       
       // Clear existing options
       testSelect.clearOptions();
-      testSelect.addOption({value: '', text: '*Test SeÃ§in'});
+      testSelect.addOption({value: '', text: '*Test Seçin'});
       
       if (!bookType) {
         testSelect.disable();
@@ -667,7 +667,7 @@
         options.className = "options";
         options.setAttribute("data-question", i);
 
-        ['A', 'B', 'C', 'D', 'E', 'BOÅ'].forEach(option => {
+        ['A', 'B', 'C', 'D', 'E', 'BOŞ'].forEach(option => {
           const id = `q${i}_${option}`;
           const input = document.createElement("input");
           input.type = "radio";
@@ -692,7 +692,7 @@
     }
 
     function confirmCheck() {
-      if (confirm("CevaplarÄ± kontrol etmek istediÄŸinize emin misiniz?")) {
+      if (confirm("Cevapları kontrol etmek istediğinize emin misiniz?")) {
         checkAnswers();
       }
     }
@@ -701,10 +701,10 @@
       const bookType = bookSelect.getValue();
       const testType = testSelect.getValue();
       
-      if (!bookType || !testType) return alert("LÃ¼tfen kitap ve test tÃ¼rÃ¼nÃ¼ seÃ§in!");
+      if (!bookType || !testType) return alert("Lütfen kitap ve test türünü seçin!");
       
       const correctAnswers = answerKeys[bookType][testType];
-      if (!correctAnswers) return alert("LÃ¼tfen test tÃ¼rÃ¼nÃ¼ seÃ§in!");
+      if (!correctAnswers) return alert("Lütfen test türünü seçin!");
 
       let correct = 0, wrong = 0, empty = 0;
 
@@ -719,7 +719,7 @@
           label.classList.remove("correct-answer");
         });
 
-        if (!selected || selected.value === "BOÅ") {
+        if (!selected || selected.value === "BOŞ") {
           empty++;
         } else if (selected.value === correctAnswer) {
           correct++;
@@ -773,11 +773,11 @@
       resultBox.innerHTML = `
         <table>
           <tr>
-            <th>DoÄŸru</th>
-            <th>YanlÄ±ÅŸ</th>
-            <th>BoÅŸ</th>
+            <th>Doğru</th>
+            <th>Yanlış</th>
+            <th>Boş</th>
             <th>Net</th>
-            <th>YÃ¼zde</th>
+            <th>Yüzde</th>
           </tr>
           <tr>
             <td>${correct}</td>
@@ -792,7 +792,7 @@
         </div>
         <div class="whatsapp-share-container">
           <button class="whatsapp-share-btn" onclick="shareResultsOnWhatsApp()">
-            <i class="fab fa-whatsapp"></i> WhatsApp'ta PaylaÅŸ
+            <i class="fab fa-whatsapp"></i> WhatsApp'ta Paylaş
           </button>
         </div>
       `;
@@ -806,11 +806,11 @@
       
       // Create share text
       const shareText = `${bookDisplayName} - Test ${testNumber} Sonucum:
-âœ… DoÄŸru: ${currentCorrect}
-âŒ YanlÄ±ÅŸ: ${currentWrong}
-â– BoÅŸ: ${currentEmpty}
-ğŸ“Š Net: ${currentNet.toFixed(2)}
-ğŸ“ˆ YÃ¼zde: ${currentPercentage.toFixed(2)}%
+✅ Doğru: ${currentCorrect}
+❌ Yanlış: ${currentWrong}
+➖ Boş: ${currentEmpty}
+📊 Net: ${currentNet.toFixed(2)}
+📈 Yüzde: ${currentPercentage.toFixed(2)}%
 _www.aoyayincilik.com_`;
       
       // Encode the text for URL
