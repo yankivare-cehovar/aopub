@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
 						<li><a href="https://aoyayincilik.com/publications/">Yayınlarımız</a></li>
 						<li><a href="https://aoyayincilik.com/writiq/">Writiq</a></li>
 						<li><a href="https://aoyayincilik.com/gradia/">Gradia</a></li>
+						<li><a href="https://murekkep.aoyayincilik.com">Mürekkep</a></li>
 						<li><a href="https://aoyayincilik.com/about/">Hakkımızda</a></li>
 					</ul>
 				</div>
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
 						<li><a href="${root}publications/">YDT Denemeleri</a></li>						
 						<li><a href="${root}writiq/">Writiq</a></li>
 						<li><a href="${root}gradia/">Gradia</a></li>	
+						<li><a href="https://murekkep.aoyayincilik.com">Mürekkep</a></li>
 					</ul>
 				</div>
 			</div>
